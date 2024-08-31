@@ -5,6 +5,14 @@ import 'package:flutter/material.dart';
 
 class Styles {
 
+  static const TextStyle boldtextStyle12 = TextStyle(
+    fontSize: 12 , fontWeight: FontWeight.bold
+  ); 
+
+  static const TextStyle boldtextStyle14 = TextStyle(
+    fontSize: 14 , fontWeight: FontWeight.bold
+  ); 
+
    static const TextStyle boldtextStyle16 = TextStyle(
     fontSize: 16 , fontWeight: FontWeight.bold
   ); 
@@ -46,6 +54,9 @@ class Styles {
     fontSize: 16  , fontWeight: FontWeight.w500
   );
 
+static const TextStyle regulartextStyle14 = TextStyle(
+    fontSize: 14  , fontWeight: FontWeight.w500
+  );
    static const TextStyle regulartextStyle20 = TextStyle(
     fontSize: 20  , fontWeight: FontWeight.normal
   );

@@ -13,7 +13,9 @@ class AppRouts {
   static const String verifyCodeSignUp = '/verifyCodesignup';
   static const String testPage = '/test';
   static const String failedScreen = '/failedScreen';
+  static const String testView = '/testView';
   //========================= Home ===========================//
 
   static const String homeScreen = '/homeScreen';
+  static const String homeGeneral = '/homeGeneral';
 }
