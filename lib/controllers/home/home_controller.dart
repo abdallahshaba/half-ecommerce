@@ -2,11 +2,13 @@ import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/home/home_remot.dart';
+import 'package:e_commerce_app14/views/screen/items/items_screnn.dart';
 import 'package:get/get.dart';
 
 abstract class HomeController extends GetxController {
    initialData();
    getDataa();
+   goToItemsScreen(List categories , int selectedCat);
 }
 class HomeControllerImp extends HomeController{
   MyServices myServices = Get.find();
@@ -14,8 +16,9 @@ class HomeControllerImp extends HomeController{
   HomeData homeData =HomeData(Get.find());
   List data = [];
   List categories = [];
-   List items = [];
-   List sallingitems = [];
+  List items = [];
+  List sallingitems = [];
+  List offersItem = [];
 
   late StatusRequest statusRequest;
 
@@ -36,6 +39,7 @@ class HomeControllerImp extends HomeController{
         categories.addAll(response['categories']);
         items.addAll(response['items']);
         sallingitems.addAll(response['sallingItem']);
+        offersItem.addAll(response['offers']);
         print("==============================================$categories");
       } else {
         statusRequest = StatusRequest.failure;
@@ -55,7 +59,10 @@ class HomeControllerImp extends HomeController{
     super.onInit();
   }
   
-
-  
-
+  @override
+  goToItemsScreen(categories , selectedCat) {
+  Get.to(const ItemsScreen() , transition: Transition.fadeIn , arguments: {
+    "categoriesArg" : categories , "slectedCatArd" : selectedCat,
+  });
+  }
 }

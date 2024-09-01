@@ -1,67 +1,69 @@
-// ignore: file_names
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
-import 'package:e_commerce_app14/data/models/items_model.dart';
+import 'package:e_commerce_app14/data/models/offers_model.dart';
 import 'package:e_commerce_app14/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomListProductForYou extends StatelessWidget {
-  const CustomListProductForYou({super.key});
+class CustomListOffers extends StatelessWidget {
+  const CustomListOffers({super.key});
 
   @override
   Widget build(BuildContext context) {
   HomeControllerImp controller = Get.put(HomeControllerImp());
     return SizedBox(
-        height: 180,
+        height: 200,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: controller.items.length,
+          itemCount: controller.offersItem.length,
           itemBuilder: (context, index) {
-            return Items(itemsModel: ItemsModel.fromJson(controller.items[index]),);
+            return SallingItems(offersModel: OffersModel.fromJson(controller.offersItem[index]) ,);
           },
         )
         );
   }
 }
 
-
-class Items extends StatelessWidget {
-  const Items({super.key, required this.itemsModel});
-  final ItemsModel itemsModel;
+class SallingItems extends StatelessWidget {
+  const SallingItems({super.key, required this.offersModel});
+  final OffersModel offersModel;
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(
+      children: [
               Positioned(
-                top: 10,
+                top: 20,
                 left: 3,
                 child: Container(
                   height: 145,
                   width: 145,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: const BorderRadius.only(
+                  decoration: const BoxDecoration(
+                      color:  Color.fromARGB(255, 255, 255, 255),
+                      borderRadius:  BorderRadius.only(
                           topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10))),
+                          bottomLeft: Radius.circular(10)),
+                          ),
                 ),
               ),
               Container(
                 padding: const EdgeInsets.only(
                   top: 5,
                   left: 40,
+                  right: 10,
+                  bottom: 5,
                 ),
                 margin: const EdgeInsets.only(left: 10),
                 height: 150,
                 width: 280,
                 decoration: const BoxDecoration(),
                 child: Image.network(
-                  "${AppLink.imageItems}/${itemsModel.itemsImage}",
+                  "${AppLink.imageItems}/${offersModel.itemsImage}",
                   fit: BoxFit.contain,
                 ),
               ),
               Positioned(
-                top: 20,
+                top: 25,
                 left: 0,
                 child: SizedBox(
                   width: 120,
@@ -72,14 +74,14 @@ class Items extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 12),
                         child: Text(
-                          "${itemsModel.itemsName}",
+                          "${offersModel.itemsName}",
                           style: Styles.boldtextStyle14.copyWith(color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 5,),
                       Container(
                         padding: const EdgeInsets.all(5),
-                        height: 35,
+                        height: 29,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(10)
@@ -88,13 +90,30 @@ class Items extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 5),
-                          child: Text("${itemsModel.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
+                          child: Text("${offersModel.newPrice} \$" ,style: Styles.boldtextStyle14.copyWith(color:Colors.white),),
                         ),
                       )
                     ],
                   ),
                 ),
               ),
+              Positioned(
+                bottom: 20,
+                child: Container(
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 89, 0),
+                  borderRadius: BorderRadius.circular(26),
+                ),
+                child: Column(
+                  children: [
+                   const SizedBox(height: 4,),
+                    Text("OFF" , style: Styles.boldtextStyle12.copyWith(color: Colors.white),),
+                    Text("${offersModel.offers}%" ,style: Styles.boldtextStyle12.copyWith(color:Colors.white),),
+                  ],
+                ),
+              ))
             ]
             );
   }

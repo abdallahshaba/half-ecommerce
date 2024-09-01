@@ -18,4 +18,7 @@ class AppRouts {
 
   static const String homeScreen = '/homeScreen';
   static const String homeGeneral = '/homeGeneral';
+
+  //========================== Items ========================//
+  static const String itemsScreen = '/itemsScreen';
 }

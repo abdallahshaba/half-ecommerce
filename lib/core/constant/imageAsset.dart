@@ -7,6 +7,8 @@ class AppImageAsset {
   static const String onBoardingImageThree = '$routeImage/three.PNG';
   static const String logo = '$routeImage/logo.png';
   static const String logoApp = '$routeImage/logoapp.png';
+  static const String appLogo = '$routeImage/appLogo.png';
+  static const String appLogo33 = '$routeImage/appLogo33.png';
 
   
 //======================== Animation ==================================//

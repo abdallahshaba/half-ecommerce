@@ -13,7 +13,7 @@ class OffersWidgets extends StatelessWidget {
           alignment: Alignment.center,
           height: 150,
           decoration: BoxDecoration(
-              color: AppColor.kPrimaryColor,
+              color: AppColor.kBackgroundColorMain,
               borderRadius: BorderRadius.circular(10)),
           child: ListTile(
             title: Padding(
@@ -37,7 +37,7 @@ class OffersWidgets extends StatelessWidget {
             width: 160,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: AppColor.kPrimaryColor2),
+                color:const Color.fromARGB(255, 116, 124, 211)),
           ),
         )
       ],

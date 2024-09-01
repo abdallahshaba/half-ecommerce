@@ -1,7 +1,9 @@
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/class/handling_data_view.dart';
-import 'package:e_commerce_app14/views/widgets/home/custom_appbar.dart';
+import 'package:e_commerce_app14/views/widgets/home/Home_2/custom_home_appBar.dart';
+import 'package:e_commerce_app14/views/widgets/home/Home_2/custom_home_textFiels.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_list_categories.dart';
+import 'package:e_commerce_app14/views/widgets/home/custom_list_offers.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_list_productForYou.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_list_salling.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_title.dart';
@@ -16,31 +18,62 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.only(top: 20, left: 20, right: 10),
-      child: GetBuilder<HomeControllerImp>(
-        builder: (controller) => HandlingDataView(
-          statusRequest: controller.statusRequest,
-          widget: ListView(
-            children: const [
-             CustomAppBarHomeScreen(hintText: "Find Product"),
-              SizedBox(height: 15,),
-              OffersWidgets(),
-              SizedBox(height: 30,),
-              CustomTitle(text: "Categories"),
-              SizedBox(height: 10,),
-              CustomListCategoriesHome(),
-              SizedBox(height: 20,),
-              CustomTitle(text: "Product for you"),
-              SizedBox(height: 10,),
-              CustomListProductForYou(),
-              CustomTitle(text: "Best selling products"),
-              SizedBox(height: 10,),
-              CustomListBestSalling(),
-            ],
+        body: GetBuilder<HomeControllerImp>(
+          builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView(
+              children:  [
+             const CustomHomeAppBar(),
+             const SizedBox(height: 12,),
+              Container(
+                padding: const EdgeInsets.only(top: 2 , bottom: 15),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFEDECF2),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 45,
+                            child: const CustomHomeTextFiled()
+                          ),
+                          const SizedBox(height: 20,),
+                          const OffersWidgets(),
+                          const SizedBox(height: 20,),
+                          const CustomTitle(text: "Categories"),
+                          const SizedBox(height: 10,),
+                          const CustomListCategoriesHome(),
+                          const SizedBox(height: 10,),
+                          const CustomTitle(text: "Products for you"),
+                          const SizedBox(height: 10,),
+                          const CustomListProductForYou(),
+                          const SizedBox(height: 10,),
+                          const CustomTitle(text: "Best selling products"),
+                          const SizedBox(height: 10,),
+                          const CustomListBestSalling(),
+                          const SizedBox(height: 10,),
+                          const CustomTitle(text: "Offers"),
+                          const SizedBox(height: 0,),
+                          const CustomListOffers(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              ],
+            ),
           ),
-        ),
-      ),
-    ));
+        )
+        );
   }
 }

@@ -8,4 +8,6 @@ class AppColor {
   static const Color kPrimaryColor = Color(0xfff2766c);
   static const Color kPrimaryColor2 = Color(0xffc0392b);
   static const Color kBackgroundColor = Colors.white;
+  static const Color kBackgroundColorMain = Color(0xFF4c53A5);
+  static const Color kBackgroundColorMain2 = Color(0xFFEDECF2);
 }

@@ -21,7 +21,9 @@ class CustomListCategoriesHome extends GetView<HomeControllerImp> {
         scrollDirection: Axis.horizontal,
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
-          return  Categories(categoriesModel: CategoriesModel.fromJson(controller.categories[index]),);
+          return  Categories(
+            i : index ,
+            categoriesModel: CategoriesModel.fromJson(controller.categories[index]),);
         },
       ),
     );
@@ -29,32 +31,38 @@ class CustomListCategoriesHome extends GetView<HomeControllerImp> {
 }
 
 
-class Categories extends StatelessWidget {
+class Categories extends GetView<HomeControllerImp> {
    final CategoriesModel categoriesModel;
-  const Categories({super.key, required this.categoriesModel});
+   final int i ;
+  const Categories( {super.key, required this.categoriesModel , required this.i});
  
   @override
   Widget build(BuildContext context) {
-    return Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                height: 65,
-                width: 65,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 255, 223, 221)),
-                child: SvgPicture.network(
-                    "${AppLink.imageCategories}/${categoriesModel.categoriesImage}"),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(
-                "${categoriesModel.categoriesName}",
-                style: Styles.regulartextStyle14,
-              )
-            ],
-          );
+    return InkWell(
+      onTap: () {
+        controller.goToItemsScreen(controller.categories , i );
+      },
+      child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  height: 65,
+                  width: 65,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(255, 255, 255, 255)),
+                  child: SvgPicture.network(
+                      "${AppLink.imageCategories}/${categoriesModel.categoriesImage}" , color: Color.fromARGB(255, 0, 4, 48),),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "${categoriesModel.categoriesName}",
+                  style: Styles.regulartextStyle14,
+                )
+              ],
+            ),
+    );
   }
 }

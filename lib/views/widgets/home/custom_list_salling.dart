@@ -1,4 +1,5 @@
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
+import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/data/models/salling_items_model.dart';
 import 'package:e_commerce_app14/link_api.dart';
@@ -12,7 +13,7 @@ class CustomListBestSalling extends StatelessWidget {
   Widget build(BuildContext context) {
   HomeControllerImp controller = Get.put(HomeControllerImp());
     return SizedBox(
-        height: 200,
+        height: 180,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: controller.sallingitems.length,
@@ -38,7 +39,7 @@ class SallingItems extends StatelessWidget {
                   height: 145,
                   width: 145,
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10))),
@@ -62,12 +63,36 @@ class SallingItems extends StatelessWidget {
               ),
               Positioned(
                 top: 20,
-                left: 15,
+                left: 0,
                 child: SizedBox(
-                  width: 90,
-                  child: Text(
-                    "${sallingItemsModels.itemsName}",
-                    style: Styles.boldtextStyle14.copyWith(color: Colors.black),
+                  width: 120,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: Text(
+                          "${sallingItemsModels.itemsName}",
+                          style: Styles.boldtextStyle14.copyWith(color: Colors.black),
+                        ),
+                      ),
+                      const SizedBox(height: 5,),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        height: 35,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10)
+                          ),
+                          color: AppColor.kBackgroundColorMain
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 5),
+                          child: Text("${sallingItemsModels.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
