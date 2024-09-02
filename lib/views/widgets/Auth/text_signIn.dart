@@ -17,7 +17,7 @@ class CustomTextSignInOrSignUp extends StatelessWidget {
                    ),
                     InkWell(
                       onTap: onTap,
-                    child: Text(text2 , style: Styles.regulartextStyle16.copyWith(fontWeight: FontWeight.bold,color: AppColor.kPrimaryColor),),
+                    child: Text(text2 , style: Styles.regulartextStyle16.copyWith(fontWeight: FontWeight.bold,color: AppColor.kBackgroundColorMain),),
                    ),
                  ],
                );

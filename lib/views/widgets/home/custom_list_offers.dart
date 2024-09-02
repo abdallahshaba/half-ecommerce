@@ -48,10 +48,10 @@ class SallingItems extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(
-                  top: 5,
+                  top: 9,
                   left: 40,
                   right: 10,
-                  bottom: 5,
+                  bottom: 0,
                 ),
                 margin: const EdgeInsets.only(left: 10),
                 height: 150,
@@ -92,8 +92,17 @@ class SallingItems extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 5),
                           child: Text("${offersModel.newPrice} \$" ,style: Styles.boldtextStyle14.copyWith(color:Colors.white),),
                         ),
-                      )
-                    ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                                        '${offersModel.itemsPrice} \$',
+                                        style: Styles.boldtextStyle14.copyWith(
+                                          decoration: TextDecoration.lineThrough,
+                                          decorationThickness: 2
+                                          )
+                                          ),
+                      )],
                   ),
                 ),
               ),

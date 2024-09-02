@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 class CustomListProductForYou extends StatelessWidget {
   const CustomListProductForYou({super.key});
-
+ 
   @override
   Widget build(BuildContext context) {
   HomeControllerImp controller = Get.put(HomeControllerImp());
@@ -89,6 +89,17 @@ class Items extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 5),
                           child: Text("${itemsModel.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
+                        ),
+                      ),
+                      const SizedBox(height: 52,),
+                      const Padding(
+                        padding:  EdgeInsets.only(left: 7),
+                        child:  Row(
+                          children: [
+                            Icon(Icons.favorite_border_outlined , size: 20,color: Colors.red,),
+                            SizedBox(width: 10,),
+                            Icon(Icons.shopping_cart_outlined , size: 20,color: AppColor.kBackgroundColorMain,)
+                          ],
                         ),
                       )
                     ],

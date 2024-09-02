@@ -9,6 +9,7 @@ class AppImageAsset {
   static const String logoApp = '$routeImage/logoapp.png';
   static const String appLogo = '$routeImage/appLogo.png';
   static const String appLogo33 = '$routeImage/appLogo33.png';
+  static const String appLogoSign = '$routeImage/appLogo_signIn.png';
 
   
 //======================== Animation ==================================//

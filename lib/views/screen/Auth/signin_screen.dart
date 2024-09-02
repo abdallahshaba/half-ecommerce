@@ -45,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
           return HandlingDataRequest(
             statusRequest: controller.statusRequest, 
             widget: Container(
-            color: AppColor.kBackgroundColor,
+            color: AppColor.kBackgroundColorMain2,
             child: Column(
               children: [
                const SizedBox(
@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   padding: EdgeInsets.zero,
                   children: [
                     Image.asset(
-                      AppImageAsset.logo,
+                      AppImageAsset.appLogoSign,
                       height: 180,
                     ),
                     const SizedBox(

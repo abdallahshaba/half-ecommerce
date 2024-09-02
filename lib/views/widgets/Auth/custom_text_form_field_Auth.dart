@@ -1,8 +1,11 @@
+
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class CustomTextFormAuth extends StatelessWidget {
   final String hinttext;
-  final String labeltext;
+  final String? labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
   final String? Function(String?) valid;
@@ -10,6 +13,7 @@ class CustomTextFormAuth extends StatelessWidget {
   final bool? obscureText;
   final void Function()? onTapIcon;
 
+  // ignore: use_super_parameters
   const CustomTextFormAuth(
       {Key? key,
       this.obscureText,
@@ -34,15 +38,27 @@ class CustomTextFormAuth extends StatelessWidget {
         controller: mycontroller,
         obscureText: obscureText == null || obscureText == false  ? false : true,
         decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none
+          ),
+          errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none
+          ),
+          fillColor: Colors.white,
+          filled: true,
             hintText: hinttext,
             hintStyle: const TextStyle(fontSize: 14),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-            label: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 9),
-                child: Text(labeltext)),
-            suffixIcon: InkWell(child: Icon(iconData), onTap: onTapIcon),
+           
+            suffixIcon: InkWell(onTap: onTapIcon, child: Icon(iconData)),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
       ),

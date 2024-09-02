@@ -42,7 +42,7 @@ class SallingItems extends StatelessWidget {
                       color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10))),
+                         )),
                 ),
               ),
               Container(
@@ -90,6 +90,17 @@ class SallingItems extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 5),
                           child: Text("${sallingItemsModels.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
+                        ),
+                      ),
+                      const SizedBox(height: 52,),
+                      const Padding(
+                        padding:  EdgeInsets.only(left: 7),
+                        child:  Row(
+                          children: [
+                           Icon(Icons.favorite_border_outlined , size: 20,color: Colors.red,),
+                            SizedBox(width: 10,),
+                            Icon(Icons.shopping_cart_outlined , size: 20,color: AppColor.kBackgroundColorMain,)
+                          ],
                         ),
                       )
                     ],
