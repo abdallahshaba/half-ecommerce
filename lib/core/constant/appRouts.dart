@@ -21,4 +21,5 @@ class AppRouts {
 
   //========================== Items ========================//
   static const String itemsScreen = '/itemsScreen';
+  static const String itemsDetailsScreen = '/itemsDetailsScreen';
 }

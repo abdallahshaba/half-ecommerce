@@ -1,4 +1,4 @@
-class ItemsModel {
+class ItemsGeneralModel {
   String? itemsId;
   String? itemsName;
   String? itemsNameAr;
@@ -14,13 +14,8 @@ class ItemsModel {
   String? salesNumber;
   String? offers;
   String? newPrice;
-  String? categoriesId;
-  String? categoriesName;
-  String? categoriesNameAr;
-  String? categoriesImage;
-  String? categoriesDatatime;
 
-  ItemsModel(
+  ItemsGeneralModel(
       {this.itemsId,
       this.itemsName,
       this.itemsNameAr,
@@ -35,14 +30,9 @@ class ItemsModel {
       this.itemsCategories,
       this.salesNumber,
       this.offers,
-      this.newPrice,
-      this.categoriesId,
-      this.categoriesName,
-      this.categoriesNameAr,
-      this.categoriesImage,
-      this.categoriesDatatime});
+      this.newPrice});
 
-  ItemsModel.fromJson(Map<String, dynamic> json) {
+  ItemsGeneralModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
@@ -58,11 +48,6 @@ class ItemsModel {
     salesNumber = json['sales_number'];
     offers = json['offers'];
     newPrice = json['new_price'];
-    categoriesId = json['categories_id'];
-    categoriesName = json['categories_name'];
-    categoriesNameAr = json['categories_name_ar'];
-    categoriesImage = json['categories_image'];
-    categoriesDatatime = json['categories_datatime'];
   }
 
   Map<String, dynamic> toJson() {
@@ -82,11 +67,6 @@ class ItemsModel {
     data['sales_number'] = this.salesNumber;
     data['offers'] = this.offers;
     data['new_price'] = this.newPrice;
-    data['categories_id'] = this.categoriesId;
-    data['categories_name'] = this.categoriesName;
-    data['categories_name_ar'] = this.categoriesNameAr;
-    data['categories_image'] = this.categoriesImage;
-    data['categories_datatime'] = this.categoriesDatatime;
     return data;
   }
 }

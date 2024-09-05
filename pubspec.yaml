@@ -68,6 +68,7 @@ dependencies:
   url_launcher: ^6.1.2
   lottie: ^3.1.2
   curved_navigation_bar: ^1.0.6
+  clippy_flutter: ^2.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_lints: ^3.0.2

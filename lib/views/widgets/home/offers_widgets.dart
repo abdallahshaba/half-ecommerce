@@ -1,8 +1,10 @@
+import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class OffersWidgets extends StatelessWidget {
+class OffersWidgets extends GetView<HomeControllerImp> {
   const OffersWidgets({super.key});
 
   @override
@@ -30,7 +32,8 @@ class OffersWidgets extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 250,
+          left: controller.lang =="en" ? 250 :null,
+          right: controller.lang =="ar" ? 250 : null,
           bottom: 10,
           child: Container(
             height: 160,

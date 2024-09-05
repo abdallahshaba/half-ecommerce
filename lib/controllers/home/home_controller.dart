@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController {
    initialData();
    getDataa();
-   goToItemsScreen(List categories , int selectedCat);
+   goToItemsScreen(List categories , int selectedCat , String categoryId);
 }
 class HomeControllerImp extends HomeController{
   MyServices myServices = Get.find();
@@ -20,10 +20,13 @@ class HomeControllerImp extends HomeController{
   List sallingitems = [];
   List offersItem = [];
 
+  String? lang ;
   late StatusRequest statusRequest;
 
+  @override
   initialData(){
     username = myServices.sharedPreference.getString("username");
+    lang = myServices.sharedPreference.getString("Lang");
     }
 
 
@@ -37,9 +40,18 @@ class HomeControllerImp extends HomeController{
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         categories.addAll(response['categories']);
-        items.addAll(response['items']);
-        sallingitems.addAll(response['sallingItem']);
-        offersItem.addAll(response['offers']);
+       for (var item in response['itemsGeneral']) {
+        if (int.parse(item['items_discount']) != 0) {
+          items.add(item);
+        }
+         if (int.parse(item['sales_number']) > 5) {
+    sallingitems.add(item);
+  }
+        if (int.parse(item['offers']) != 0) {
+          offersItem.add(item);
+        }
+      }
+        
         print("==============================================$categories");
       } else {
         statusRequest = StatusRequest.failure;
@@ -60,9 +72,9 @@ class HomeControllerImp extends HomeController{
   }
   
   @override
-  goToItemsScreen(categories , selectedCat) {
+  goToItemsScreen(categories , selectedCat , categoryId) {
   Get.to(const ItemsScreen() , transition: Transition.fadeIn , arguments: {
-    "categoriesArg" : categories , "slectedCatArd" : selectedCat,
+    "categoriesArg" : categories , "slectedCatArd" : selectedCat, "categoryIdArg" : categoryId
   });
   }
 }

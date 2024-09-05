@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
@@ -27,7 +28,7 @@ class CustomListProductForYou extends StatelessWidget {
 }
 
 
-class Items extends StatelessWidget {
+class Items extends GetView<HomeControllerImp> {
   const Items({super.key, required this.itemsModel});
   final ItemsModel itemsModel;
   @override
@@ -55,14 +56,15 @@ class Items extends StatelessWidget {
                 height: 150,
                 width: 280,
                 decoration: const BoxDecoration(),
-                child: Image.network(
-                  "${AppLink.imageItems}/${itemsModel.itemsImage}",
-                  fit: BoxFit.contain,
-                ),
+                child: CachedNetworkImage(
+                         imageUrl: "${AppLink.imageItems}/${itemsModel.itemsImage!}" , fit: BoxFit.contain , height: 130,
+                                      
+                                    ),
               ),
               Positioned(
                 top: 20,
-                left: 0,
+                left: controller.lang=="en" ? 0 : -60,
+                
                 child: SizedBox(
                   width: 120,
                   child: Column(
@@ -70,7 +72,7 @@ class Items extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 12),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Text(
                           "${itemsModel.itemsName}",
                           style: Styles.boldtextStyle14.copyWith(color: Colors.black),

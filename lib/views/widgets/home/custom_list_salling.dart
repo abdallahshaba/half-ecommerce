@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
@@ -56,10 +57,10 @@ class SallingItems extends StatelessWidget {
                 height: 150,
                 width: 280,
                 decoration: const BoxDecoration(),
-                child: Image.network(
-                  "${AppLink.imageItems}/${sallingItemsModels.itemsImage}",
-                  fit: BoxFit.contain,
-                ),
+                child: CachedNetworkImage(
+                         imageUrl: "${AppLink.imageItems}/${sallingItemsModels.itemsImage!}" , fit: BoxFit.contain , height: 130,
+                                      
+                                    ),
               ),
               Positioned(
                 top: 20,

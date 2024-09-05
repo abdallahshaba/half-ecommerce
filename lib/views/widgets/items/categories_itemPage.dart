@@ -1,6 +1,7 @@
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/controllers/iteme/item_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
+import 'package:e_commerce_app14/core/functions/translataDatabase.dart';
 import 'package:e_commerce_app14/data/models/categories_model.dart';
 import 'package:e_commerce_app14/link_api.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,8 @@ class Categories extends GetView<ItemsControllerImp> {
     Get.put(ItemsControllerImp());
     return GetBuilder<ItemsControllerImp>(builder:(controller) => InkWell(
       onTap: () {
-        controller.changeCat(i);
+        controller.changeCat(i , categoriesModel.categoriesId!);
+
       },
       child: Container(
         decoration: BoxDecoration(
@@ -60,7 +62,7 @@ class Categories extends GetView<ItemsControllerImp> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
                 child: SizedBox(
-                  child: Text("${categoriesModel.categoriesName}"),),
+                  child: Text("${translateDatabase(categoriesModel.categoriesNameAr, categoriesModel.categoriesName)}"),),
               ),
                 SizedBox(
                   width: 30,

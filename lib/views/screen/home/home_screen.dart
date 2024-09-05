@@ -44,12 +44,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Container(
                             height: 45,
-                            child: const CustomHomeTextFiled()
+                            child: const CustomHomeTextFiled(color: Colors.white,)
                           ),
                           const SizedBox(height: 20,),
                           const OffersWidgets(),
                           const SizedBox(height: 20,),
-                          const CustomTitle(text: "Categories"),
+                           CustomTitle(text: "${39}".tr),
                           const SizedBox(height: 10,),
                           const CustomListCategoriesHome(),
                           const SizedBox(height: 10,),
