@@ -21,7 +21,9 @@ class GridViewItems extends StatelessWidget {
               childAspectRatio: 0.62
               ), 
             itemBuilder:(context, index) {
-              return CardItem(itemsModel: ItemsGeneralModel.fromJson(controller.item[index]),);
+              return CardItem(
+                active: true,
+                itemsModel: ItemsGeneralModel.fromJson(controller.item[index]),);
             },
             );
     },);
@@ -30,8 +32,9 @@ class GridViewItems extends StatelessWidget {
 
 
 class CardItem extends GetView<ItemsControllerImp> {
-  const CardItem({super.key, required this.itemsModel});
+  const CardItem( {required this.active,super.key, required this.itemsModel});
   final ItemsGeneralModel itemsModel;
+  final bool active;
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
@@ -89,7 +92,8 @@ class CardItem extends GetView<ItemsControllerImp> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                            Text("${itemsModel.itemsPrice} \$" , style: Styles.boldtextStyle16.copyWith(color: AppColor.kBackgroundColorMain),),
-                          IconButton(onPressed:() {}, icon: const Icon(Icons.favorite_border_outlined , color: Colors.red,))
+                          IconButton(onPressed:() {}, 
+                          icon: active ? const Icon(Icons.favorite , color: Colors.red,) :const Icon(Icons.favorite_border_outlined , color: Colors.red,) )
                           ],
                         ),
                       ),
