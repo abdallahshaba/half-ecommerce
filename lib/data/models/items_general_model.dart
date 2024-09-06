@@ -14,6 +14,7 @@ class ItemsGeneralModel {
   String? salesNumber;
   String? offers;
   String? newPrice;
+  String? favorite;
 
   ItemsGeneralModel(
       {this.itemsId,
@@ -30,7 +31,9 @@ class ItemsGeneralModel {
       this.itemsCategories,
       this.salesNumber,
       this.offers,
-      this.newPrice});
+      this.newPrice,
+      this.favorite
+      });
 
   ItemsGeneralModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
@@ -48,6 +51,7 @@ class ItemsGeneralModel {
     salesNumber = json['sales_number'];
     offers = json['offers'];
     newPrice = json['new_price'];
+    favorite = json['favorite'];
   }
 
   Map<String, dynamic> toJson() {

@@ -45,7 +45,7 @@ class HomeControllerImp extends HomeController{
           items.add(item);
         }
          if (int.parse(item['sales_number']) > 5) {
-    sallingitems.add(item);
+           sallingitems.add(item);
   }
         if (int.parse(item['offers']) != 0) {
           offersItem.add(item);

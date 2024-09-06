@@ -14,7 +14,7 @@ static const String linkServerName = "http://10.0.2.2/eCommerceApp";
   static const String homePage = "$linkServerName/home/home.php";
 
  //============================Items===============================//
- static const String itemsPage = "$linkServerName/items/items.php";
+ static const String itemsPage = "$linkServerName/itemss/view.php";
 
   //============================Image===============================//
   static const String imageStatic = "$linkServerName/upload";
