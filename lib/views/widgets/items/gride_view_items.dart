@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce_app14/controllers/iteme/favorite_controller.dart';
+import 'package:e_commerce_app14/controllers/fav/favorite_controller.dart';
 import 'package:e_commerce_app14/controllers/iteme/item_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
@@ -12,7 +12,7 @@ class GridViewItems extends StatelessWidget {
   const GridViewItems({super.key});
   @override
   Widget build(BuildContext context) {
-    FavoriteController favoriteController = Get.put(FavoriteController());
+    FavoriteControllerImp favoriteController = Get.put(FavoriteControllerImp());
     return GetBuilder<ItemsControllerImp>(builder:(controller) {
       return GridView.builder(
             itemCount: controller.item.length,
@@ -39,7 +39,7 @@ class CardItem extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
-   FavoriteController favoriteController = Get.put(FavoriteController());
+   FavoriteControllerImp favoriteController = Get.put(FavoriteControllerImp());
     return InkWell(
       onTap: () {
         controller.goToItemDetailsScreen(itemsModel);
@@ -96,11 +96,14 @@ class CardItem extends GetView<ItemsControllerImp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                              Text("${itemsModel.itemsPrice} \$" , style: Styles.boldtextStyle16.copyWith(color: AppColor.kBackgroundColorMain),),
-                            GetBuilder<FavoriteController>(builder:(controllerrr) => IconButton(onPressed:() {
+                            GetBuilder<FavoriteControllerImp>(builder:(controllerrr) => 
+                            IconButton(onPressed:() {
                               if (favoriteController.favorite[itemsModel.itemsId]=="1") {
                                  controllerrr.setFavorite(itemsModel.itemsId, "0");
+                                 favoriteController.removefavorites(itemsModel.itemsId);
                               }else{
                                 controllerrr.setFavorite(itemsModel.itemsId, "1");
+                                favoriteController.addfavorites(itemsModel.itemsId);
                               }
                             }, 
                             icon: favoriteController.favorite[itemsModel.itemsId]=="1"? const Icon(Icons.favorite , color: Colors.red,) : const Icon(Icons.favorite_border_outlined , color: Colors.red,) ),)

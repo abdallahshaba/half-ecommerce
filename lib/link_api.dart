@@ -13,6 +13,10 @@ static const String linkServerName = "http://10.0.2.2/eCommerceApp";
   //============================Home===============================//
   static const String homePage = "$linkServerName/home/home.php";
 
+   //============================Favorite===============================//
+  static const String addFavorite = "$linkServerName/favoritesss/add.php";
+  static const String removeFavorite = "$linkServerName/favoritesss/delete.php";
+
  //============================Items===============================//
  static const String itemsPage = "$linkServerName/itemss/view.php";
 
