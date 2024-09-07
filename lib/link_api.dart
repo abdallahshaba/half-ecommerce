@@ -16,6 +16,7 @@ static const String linkServerName = "http://10.0.2.2/eCommerceApp";
    //============================Favorite===============================//
   static const String addFavorite = "$linkServerName/favoritesss/add.php";
   static const String removeFavorite = "$linkServerName/favoritesss/delete.php";
+  static const String viewFavorite = "$linkServerName/favoritesss/delete.php";
 
  //============================Items===============================//
  static const String itemsPage = "$linkServerName/itemss/view.php";

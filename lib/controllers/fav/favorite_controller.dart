@@ -15,6 +15,8 @@ abstract class FavoriteController extends GetxController{
 
   FavoriteData favoriteData =FavoriteData(Get.find());
   // List data = [];
+   var favoriteItems = [];
+    var isLoaded = false;
 
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
@@ -29,7 +31,11 @@ abstract class FavoriteController extends GetxController{
 
 
   
-  
+  @override
+  void onInit() {
+
+    super.onInit();
+  }
 
   @override
   addfavorites (itemId) async {
@@ -64,4 +70,5 @@ abstract class FavoriteController extends GetxController{
     }
 
   }
+  
  }
