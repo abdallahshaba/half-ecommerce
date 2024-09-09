@@ -1,7 +1,7 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
-import 'package:e_commerce_app14/data/dataSource/remote/fav/add.dart';
+import 'package:e_commerce_app14/data/dataSource/remote/fav/favorites_remote.dart';
 import 'package:get/get.dart';
 
 abstract class FavoriteController extends GetxController{
@@ -14,10 +14,6 @@ abstract class FavoriteController extends GetxController{
  class FavoriteControllerImp extends FavoriteController {
 
   FavoriteData favoriteData =FavoriteData(Get.find());
-  // List data = [];
-   var favoriteItems = [];
-    var isLoaded = false;
-
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
   
@@ -29,13 +25,6 @@ abstract class FavoriteController extends GetxController{
     update();
   }
 
-
-  
-  @override
-  void onInit() {
-
-    super.onInit();
-  }
 
   @override
   addfavorites (itemId) async {

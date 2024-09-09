@@ -48,7 +48,7 @@ class CustomHomeAppBar extends StatelessWidget {
               largeSize: 20,
               child: InkWell(
                 onTap: () {
-                  Get.to(const FavoriteScreen() , transition: Transition.fadeIn);
+                  Get.to(const FavoriteScreen() , transition: Transition.cupertino);
                 },
                 child: const Padding(
                   padding:  EdgeInsets.only(right: 5),

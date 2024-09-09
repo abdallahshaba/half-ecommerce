@@ -21,6 +21,20 @@ class FavoriteData {
     return response.fold((l) => l, (r) => r);
   }
 
+  viewFavoriteData (userid)async {
+    var response = await crud.postData(AppLink.viewFavorite, {
+      "userId" : userid,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+
+  deleteFromFavoriteScreenData (favoriteId)async {
+    var response = await crud.postData(AppLink.deleteFromFavoriteScreen, {
+      "favoriteId" : favoriteId,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+
 }
 
 
