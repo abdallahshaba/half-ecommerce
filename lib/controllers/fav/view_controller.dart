@@ -49,5 +49,6 @@ abstract class MyFavoriteController extends GetxController{
     var response =  myfavoriteData.deleteFromFavoriteScreenData(favoriteId);
         data.removeWhere((element) => element['favoriteId'] == favoriteId);
         update(); //
+        print(response);
       } 
     }

@@ -1,4 +1,6 @@
+import 'package:e_commerce_app14/views/screen/cart/cart_screen.dart';
 import 'package:e_commerce_app14/views/screen/home/home_screen.dart';
+import 'package:e_commerce_app14/views/screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,28 +42,9 @@ class GeneralHomeControllerImp extends GeneralHomeController{
 
   List<Widget> listPages = [
     const HomeScreen(),
-    const Column(
-      children: [
-        Center(
-          child: Text("Settings"),
-        ),
-      ],
-    ),
-        const Column(
-      children: [
-        Center(
-          child: Text("Notification"),
-        ),
-      ],
-    ),
-        const Column(
-      children: [
-        Center(
-          child: Text("Profile"),
-        ),
-      ],
-    ),
-  ];
+    const CartScreen(),
+    const SettingsScreen(),
+    const Column(children: [Center(child: Text("Profile"),),],),];
   
   @override
   changePage(int value) {

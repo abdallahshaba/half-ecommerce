@@ -63,8 +63,6 @@ class Items extends GetView<HomeControllerImp> {
               ),
               Positioned(
                 top: 20,
-                left: controller.lang=="en" ? 0 : -60,
-                
                 child: SizedBox(
                   width: 120,
                   child: Column(

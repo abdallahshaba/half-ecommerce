@@ -10,7 +10,7 @@ class AppImageAsset {
   static const String appLogo = '$routeImage/appLogo.png';
   static const String appLogo33 = '$routeImage/appLogo33.png';
   static const String appLogoSign = '$routeImage/appLogo_signIn.png';
-
+  static const String avatar = '$routeImage/avatar (1).png';
   
 //======================== Animation ==================================//
   static const String laoding = '$routeLottie/loading.json';

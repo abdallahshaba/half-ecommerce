@@ -32,8 +32,7 @@ class OffersWidgets extends GetView<HomeControllerImp> {
           ),
         ),
         Positioned(
-          left: controller.lang =="en" ? 250 :null,
-          right: controller.lang =="ar" ? 250 : null,
+          left: 250 ,
           bottom: 10,
           child: Container(
             height: 160,
