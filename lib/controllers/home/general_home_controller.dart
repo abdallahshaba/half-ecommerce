@@ -1,4 +1,3 @@
-import 'package:e_commerce_app14/views/screen/cart/cart_screen.dart';
 import 'package:e_commerce_app14/views/screen/home/home_screen.dart';
 import 'package:e_commerce_app14/views/screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +11,6 @@ class GeneralHomeControllerImp extends GeneralHomeController{
 
 
   int currentPage = 0 ;
-
-
-
- List buttomVavigationTitles = [
-    "Home" , "Settings" , "Notify" , "Profile"
- ];
 
 
  List<IconData> buttomVavigationIcons = [
@@ -42,7 +35,6 @@ class GeneralHomeControllerImp extends GeneralHomeController{
 
   List<Widget> listPages = [
     const HomeScreen(),
-    const CartScreen(),
     const SettingsScreen(),
     const Column(children: [Center(child: Text("Profile"),),],),];
   

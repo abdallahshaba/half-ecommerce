@@ -5,27 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CountAndPriceDetailsScreen extends StatelessWidget {
-  const CountAndPriceDetailsScreen({super.key, this.onAdd, this.onRemove, required this.count});
-  final void Function()? onAdd;
-  final void Function()? onRemove;
-  final String count;
+  const CountAndPriceDetailsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    ItemDetailsControllerImp controller = Get.put(ItemDetailsControllerImp());
-    return Row(
+    Get.put(ItemDetailsControllerImp());
+    return GetBuilder<ItemDetailsControllerImp>(builder:(controller) => Row(
                 children: [
                   Row(
                   children: [
                     IconButton(
-                      onPressed: onAdd, icon: const Icon(Icons.add)),
+                      onPressed: (){
+                        controller.controllerImp.addCart(controller.itemsModel.itemsId);
+                        controller.addOperation();
+                      }, icon: const Icon(Icons.add)),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 2),
                       decoration: BoxDecoration(
                         border: Border.all(color: AppColor.kBackgroundColorMain)
                       ),
-                      child:  Text(count , style: Styles.boldtextStyle14,),
+                      child:  Text("${controller.counttt}" , style: Styles.boldtextStyle14,),
                     ),
-                    IconButton(onPressed: onRemove, icon: const Icon(Icons.remove)),
+                    IconButton(onPressed: (){
+                       controller.controllerImp.deleteCart(controller.itemsModel.itemsId);
+                       controller.deleteOperation();
+                    }, icon: const Icon(Icons.remove)),
                   ],
                   ),
                  const Spacer(),
@@ -43,6 +46,6 @@ class CountAndPriceDetailsScreen extends StatelessWidget {
                     child: Text("${controller.itemsModel.itemsPrice} \$" , style: Styles.boldtextStyle20.copyWith(color: AppColor.kBackgroundColorMain),),
                   )
                 ] 
-               );
+               ),);
   }
 }

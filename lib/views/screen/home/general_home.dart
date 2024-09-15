@@ -37,7 +37,6 @@ class _HomeGeneralState extends State<HomeGeneral> {
         },
         items: const [
           Icon(Icons.home , size: 30 , color: Colors.white,),
-          Icon(CupertinoIcons.cart_fill , size: 30 , color: Colors.white,),
           Icon(Icons.settings , size: 30 , color: Colors.white,),
           Icon(CupertinoIcons.profile_circled , size: 30 , color: Colors.white,),
         ],

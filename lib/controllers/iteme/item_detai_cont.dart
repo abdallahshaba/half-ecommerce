@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/controllers/cart/cart_controller.dart';
 import 'package:e_commerce_app14/data/models/items_general_model.dart';
 import 'package:get/get.dart';
 
@@ -5,9 +6,17 @@ abstract class ItemDetailsController extends GetxController{
   initialData();
   showOfferUi();
   changItem(String value);
+  addOperation();
+  deleteOperation();
 } 
 
 class ItemDetailsControllerImp extends ItemDetailsController{
+
+ CartControllerImp controllerImp = CartControllerImp();
+  
+
+  int counttt = 0;
+
  late ItemsGeneralModel itemsModel;
  String? valueee;
   @override
@@ -23,8 +32,10 @@ class ItemDetailsControllerImp extends ItemDetailsController{
   ];
   
   @override
-  initialData() {
+  initialData() async {
    itemsModel = Get.arguments["itemModelArg"];
+   counttt = await controllerImp.getCount(itemsModel.itemsId);
+   update();
   }
   
   @override
@@ -35,6 +46,20 @@ class ItemDetailsControllerImp extends ItemDetailsController{
   changItem(value) {
     valueee = value;
     update();
+  }
+  
+  @override
+  addOperation() {
+    counttt++;
+    update();
+  }
+  
+  @override
+  deleteOperation() {
+    if(counttt>0){
+      counttt--;
+      update();
+    }
   }
 
 }

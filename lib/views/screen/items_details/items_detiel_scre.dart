@@ -19,7 +19,7 @@ class ItemDetailsScreen extends StatelessWidget {
              StackDetailsScreen(),
              SizedBox(height: 80,),
              TitleAndDecAndColorDerailsScreen(),
-             CountAndPriceDetailsScreen(count: "5",),
+             CountAndPriceDetailsScreen(),
             ],
           ),
         ),

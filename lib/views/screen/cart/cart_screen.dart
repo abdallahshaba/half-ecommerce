@@ -10,21 +10,20 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const PriceDetailsCart(),
       backgroundColor: AppColor.kBackgroundColorMain2,
       body: ListView(
         children: const  [
           AppBarCart(title: "Cart"),
-           SizedBox(height: 10,),
           Padding(
             padding:  EdgeInsets.all(8),
             child: Column(
               children: [
                  ListItemsCart(),
-                Divider()
               ],
             ),
           ),
-            PriceDetailsCart()
+            
         ],
       ),
     );

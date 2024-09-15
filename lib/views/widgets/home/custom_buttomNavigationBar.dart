@@ -40,32 +40,32 @@ class CutomeButtomNavigationBar extends StatelessWidget {
 /////////////////////////////ORRRRRRRRR//////////////////////////////////////
 
 
-class CutomeButtomNavigationBar2 extends StatelessWidget {
-  const CutomeButtomNavigationBar2({super.key});
+// class CutomeButtomNavigationBar2 extends StatelessWidget {
+//   const CutomeButtomNavigationBar2({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<GeneralHomeControllerImp>(builder:(controller) => SizedBox(
-        height: 65,
-        child: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          child: Row(
-            children: [
-              ...List.generate(controller.listPages.length+1, 
-              (index) {
-                int i = index>2? index-1 : index;
-                return index==2? const Spacer(): CutomButtomAppBar(
-                text: controller.buttomVavigationTitles[i], 
-                icon: controller.buttomVavigationIcons[i], 
-                onPressed: () => controller.changePage(i), 
-                colorTextSelected: controller.currentPage==i?AppColor.kPrimaryColor:Colors.black, 
-                iconSelected: controller.currentPage==i?AppColor.kPrimaryColor:Colors.black
-                );
-              }
-                )
-            ],
-          ),
-        ),
-      ),);
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetBuilder<GeneralHomeControllerImp>(builder:(controller) => SizedBox(
+//         height: 65,
+//         child: BottomAppBar(
+//           shape: const CircularNotchedRectangle(),
+//           child: Row(
+//             children: [
+//               ...List.generate(controller.listPages.length+1, 
+//               (index) {
+//                 int i = index>2? index-1 : index;
+//               //   return index==2? const Spacer(): CutomButtomAppBar(
+//               //  // text: controller.buttomVavigationTitles[i], 
+//               //   icon: controller.buttomVavigationIcons[i], 
+//               //   onPressed: () => controller.changePage(i), 
+//               //   colorTextSelected: controller.currentPage==i?AppColor.kPrimaryColor:Colors.black, 
+//               //   iconSelected: controller.currentPage==i?AppColor.kPrimaryColor:Colors.black
+//               //   );
+//               }
+//                 )
+//             ],
+//           ),
+//         ),
+//       ),);
+//   }
+// }

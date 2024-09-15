@@ -7,12 +7,11 @@ class AppBarCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.only(top: 10 , left: 10),
             child: Row(
               children: [
-                const Icon(Icons.shopping_cart_outlined),
                 Container(
-                  margin: const EdgeInsets.only(left: 7),
+                  margin: const EdgeInsets.only(left: 10),
                   alignment: Alignment.centerLeft,
                   child:  Text(title , style: Styles.boldtextStyle24,),
                 ),

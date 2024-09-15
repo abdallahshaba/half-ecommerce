@@ -1,6 +1,8 @@
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
+import 'package:e_commerce_app14/views/screen/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ButtomNavigationDetailsScreen extends StatelessWidget {
   const ButtomNavigationDetailsScreen({super.key});
@@ -15,7 +17,9 @@ class ButtomNavigationDetailsScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(10)
           ),
           color: AppColor.kBackgroundColorMain,
-          onPressed: (){} , child:  Text("Add to card" , style: Styles.boldtextStyle16.copyWith(color: Colors.white),),),
+          onPressed: (){
+            Get.to( const CartScreen() , transition: Transition.downToUp);
+          } , child:  Text("Go to card" , style: Styles.boldtextStyle16.copyWith(color: Colors.white),),),
       );
   }
 }

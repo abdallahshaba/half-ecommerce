@@ -3,6 +3,7 @@
 
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
+import 'package:e_commerce_app14/views/screen/cart/cart_screen.dart';
 import 'package:e_commerce_app14/views/screen/favorite/favorite_scre.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,7 +49,7 @@ class CustomHomeAppBar extends StatelessWidget {
               largeSize: 20,
               child: InkWell(
                 onTap: () {
-                  Get.to(const FavoriteScreen() , transition: Transition.cupertino);
+                  Get.to(const FavoriteScreen() , transition: Transition.fade);
                 },
                 child: const Padding(
                   padding:  EdgeInsets.only(right: 5),
@@ -57,6 +58,15 @@ class CustomHomeAppBar extends StatelessWidget {
                 ),
             ),
           ),
+          InkWell(
+                onTap: () {
+                  Get.to(const CartScreen() , transition: Transition.fadeIn);
+                },
+                child: const Padding(
+                  padding:  EdgeInsets.only(right: 5),
+                  child: Icon(Icons.shopping_cart,size: 32,color: AppColor.kBackgroundColorMain,),
+                ),
+                ),
         ],
       ) ,
       );
