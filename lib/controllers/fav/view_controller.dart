@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 abstract class MyFavoriteController extends GetxController{
   viewFavorites();
   deleteFromFavoriteScreen( String favoriteId);
+  refreshh();
 
  } 
  class MyFavoriteControllerImp extends MyFavoriteController {
@@ -45,10 +46,17 @@ abstract class MyFavoriteController extends GetxController{
   }
   
   @override
-    deleteFromFavoriteScreen(String favoriteId)  {
-    var response =  myfavoriteData.deleteFromFavoriteScreenData(favoriteId);
+    deleteFromFavoriteScreen(String favoriteId) async {
+    var response = await  myfavoriteData.deleteFromFavoriteScreenData(favoriteId);
         data.removeWhere((element) => element['favoriteId'] == favoriteId);
+        data.clear();
         update(); //
         print(response);
-      } 
+      }
+      
+        @override
+        refreshh() {
+        viewFavorites();
+          update();
+        } 
     }

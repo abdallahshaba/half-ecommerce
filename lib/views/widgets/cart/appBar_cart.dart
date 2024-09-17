@@ -1,22 +1,40 @@
-import 'package:e_commerce_app14/core/constant/text_styles.dart';
+import 'package:e_commerce_app14/controllers/iteme/item_detai_cont.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class AppBarCart extends StatelessWidget {
+class AppBarCart extends GetView<ItemDetailsControllerImp> {
   const AppBarCart({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-            padding: const EdgeInsets.only(top: 10 , left: 10),
-            child: Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
+    bool fromHome = Get.arguments ?? false;
+    return  Container(
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: [
+                      if (!fromHome)
+              Expanded(
+                child: Container(
                   alignment: Alignment.centerLeft,
-                  child:  Text(title , style: Styles.boldtextStyle24,),
+                  child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                      controller.refersh();
+                    },
+                    icon: const Icon(Icons.arrow_back),
+                  ),
                 ),
-              ],
-            ),
-          );
+              ),
+                      Expanded(
+                          child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                         title,
+                          style: const TextStyle(fontSize: 25),
+                        ),
+                      )),
+                     const Spacer()
+                    ],
+                  ));
   }
 }

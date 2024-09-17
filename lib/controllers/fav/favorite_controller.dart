@@ -1,7 +1,9 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
+import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/fav/favorites_remote.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class FavoriteController extends GetxController{
@@ -35,7 +37,12 @@ abstract class FavoriteController extends GetxController{
 
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        Get.snackbar("Done", "${response['message']}");
+        Get.snackbar("Done", "${response['message']}" , 
+        duration: const Duration(milliseconds: 1500) , 
+        icon: const Icon(Icons.done) , 
+        animationDuration: const Duration(milliseconds: 1000),
+        backgroundColor: AppColor.kBackgroundColorMain2
+        );
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -52,7 +59,12 @@ abstract class FavoriteController extends GetxController{
 
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        Get.snackbar("Done", "${response['message']}");
+         Get.snackbar("Done", "${response['message']}" , 
+        duration: const Duration(milliseconds: 1500) , 
+        icon: const Icon(Icons.done) , 
+        animationDuration: const Duration(milliseconds: 1000),
+        backgroundColor: AppColor.kBackgroundColorMain2
+        );
       } else {
         statusRequest = StatusRequest.failure;
       }

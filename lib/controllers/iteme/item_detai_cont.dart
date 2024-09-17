@@ -1,4 +1,4 @@
-import 'package:e_commerce_app14/controllers/cart/cart_controller.dart';
+import '../cart/cart_controller.dart';
 import 'package:e_commerce_app14/data/models/items_general_model.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +8,8 @@ abstract class ItemDetailsController extends GetxController{
   changItem(String value);
   addOperation();
   deleteOperation();
+  refersh();
+  reset();
 } 
 
 class ItemDetailsControllerImp extends ItemDetailsController{
@@ -33,7 +35,7 @@ class ItemDetailsControllerImp extends ItemDetailsController{
   
   @override
   initialData() async {
-   itemsModel = Get.arguments["itemModelArg"];
+   itemsModel =  Get.arguments["itemModelArg"];
    counttt = await controllerImp.getCount(itemsModel.itemsId);
    update();
   }
@@ -60,6 +62,17 @@ class ItemDetailsControllerImp extends ItemDetailsController{
       counttt--;
       update();
     }
+  }
+  
+  @override
+  refersh() {
+    initialData();
+    update();
+  }
+  
+  @override
+  reset() {
+    counttt = 0;
   }
 
 }

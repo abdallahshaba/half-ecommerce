@@ -18,7 +18,11 @@ class ButtomNavigationDetailsScreen extends StatelessWidget {
           ),
           color: AppColor.kBackgroundColorMain,
           onPressed: (){
-            Get.to( const CartScreen() , transition: Transition.downToUp);
+         Get.to(
+          const CartScreen(),
+          arguments: false, // تم فتح الصفحة من صفحة أخرى
+          transition: Transition.downToUp,
+        );
           } , child:  Text("Go to card" , style: Styles.boldtextStyle16.copyWith(color: Colors.white),),),
       );
   }

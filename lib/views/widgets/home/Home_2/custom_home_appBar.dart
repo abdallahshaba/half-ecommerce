@@ -60,7 +60,11 @@ class CustomHomeAppBar extends StatelessWidget {
           ),
           InkWell(
                 onTap: () {
-                  Get.to(const CartScreen() , transition: Transition.fadeIn);
+                 Get.to(
+                 const CartScreen(),
+                 arguments: true, // تم فتح الصفحة من الهوم
+                 transition: Transition.downToUp,
+);
                 },
                 child: const Padding(
                   padding:  EdgeInsets.only(right: 5),

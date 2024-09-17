@@ -96,9 +96,9 @@ class CardItem extends GetView<MyFavoriteControllerImp> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                             IconButton(onPressed: (){
-                              controller.deleteFromFavoriteScreen(myFavoriteModel.favoriteId!);
-                              
+                             IconButton(onPressed: ()async{
+                             await controller.deleteFromFavoriteScreen(myFavoriteModel.favoriteId!);
+                              controller.refreshh();
                              }, icon: const Icon(Icons.delete)),
                              Text("${myFavoriteModel.itemsPrice} \$" , style: Styles.boldtextStyle16.copyWith(color: AppColor.kBackgroundColorMain),),
                             ],
