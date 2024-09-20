@@ -3,14 +3,14 @@ import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/cart/cart_data.dart';
-import 'package:e_commerce_app14/data/models/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class CartController extends GetxController{
    addCart(itemid);
    deleteCart(itemid);
-   viewCart();
+   countAndPrice();
+   viewItemsCart();
    getCount(itemid);
    resetVarCart();
    refreshVariableCart();
@@ -23,13 +23,14 @@ class CartControllerImp extends CartController{
    late StatusRequest statusRequest;
    MyServices myServices = Get.find();
 
-  List<CartModel> data = [];
+  List data = [];
   double totalPrice = 0.0;
   int totalItems = 0;
 
   @override
   void onInit() {
-    viewCart();
+    viewItemsCart();
+    countAndPrice();
     super.onInit();
   }
   
@@ -95,35 +96,51 @@ class CartControllerImp extends CartController{
   }
   
   @override
-  viewCart() async{
+  countAndPrice() async{
      statusRequest = StatusRequest.loading;
     var response = await cartData.viewCart(myServices.sharedPreference.getString("id"));
      statusRequest = handlingData(response);
-
     if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-        List dataCart = response['dataCart'];
-        data.addAll(dataCart.map((e) => CartModel.fromJson(e)));
-        Map countAndPrice = response['totalCountAndPrice'];
+        if (response['status'] == 'success'){
+            Map countAndPrice = response['totalCountAndPrice'];
         totalPrice = double.parse(countAndPrice['totalPrice']);
         totalItems = int.parse(countAndPrice['totalItems']);
+        }
+        else{
+          totalItems = 0;
+          totalPrice = 0;
+        }
       } else {
         statusRequest = StatusRequest.failure;
       }
-    }
     update();
   }
   
   @override
   refreshVariableCart() {
     resetVarCart();
-    viewCart();
+    viewItemsCart();
   }
   
   @override
   resetVarCart() {
     totalPrice = 0.0;
     data.clear();
+  }
+  
+  @override
+  viewItemsCart() async {
+ statusRequest = StatusRequest.loading;
+    var response = await cartData.viewItemsCart(myServices.sharedPreference.getString("id"));
+     statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        data.addAll(response['message']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
   
 }

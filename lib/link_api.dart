@@ -2,7 +2,7 @@
 
 class AppLink {
 
-static const String linkServerName = "http://10.0.2.2/eCommerceApp";
+  static const String linkServerName = "http://10.0.2.2/eCommerceApp";
   static const String test = "$linkServerName/test.php";
 
 
@@ -21,16 +21,17 @@ static const String linkServerName = "http://10.0.2.2/eCommerceApp";
 
  //============================Items===============================//
  static const String itemsPage = "$linkServerName/itemss/view.php";
-
+ static const String searchItems = "$linkServerName/search/search.php";
   //============================Image===============================//
   static const String imageStatic = "$linkServerName/upload";
   static const String imageCategories = "$imageStatic/categories";
   static const String imageItems = "$imageStatic/items";
   //============================cart===============================//
- static const String cartView = "$linkServerName/cart/view.php";
- static const String cartAdd = "$linkServerName/cart/add.php";
- static const String cartDelete = "$linkServerName/cart/delete.php";
- static const String cartGetCountOfItems = "$linkServerName/cart/get_count_of_items.php";
+  static const String cartView = "$linkServerName/cart/view.php";
+  static const String cartitemsView = "$linkServerName/cart/view_items.php";
+  static const String cartAdd = "$linkServerName/cart/add.php";
+  static const String cartDelete = "$linkServerName/cart/delete.php";
+  static const String cartGetCountOfItems = "$linkServerName/cart/get_count_of_items.php";
 
 
 

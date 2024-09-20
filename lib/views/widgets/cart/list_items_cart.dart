@@ -21,7 +21,7 @@ class ListItemsCart extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return  Cardd(
-          cartModel: controller.data[index]
+          cartModel: CartModel.fromJson(controller.data[index])
         );
       },
     )

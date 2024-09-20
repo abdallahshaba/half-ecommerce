@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
-import 'package:e_commerce_app14/data/models/items_model.dart';
+import 'package:e_commerce_app14/data/models/items_general_model.dart';
 import 'package:e_commerce_app14/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +20,7 @@ class CustomListProductForYou extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: controller.items.length,
           itemBuilder: (context, index) {
-            return Items(itemsModel: ItemsModel.fromJson(controller.items[index]),);
+            return Items(itemsModel: ItemsGeneralModel.fromJson(controller.items[index]),);
           },
         )
         );
@@ -30,12 +30,12 @@ class CustomListProductForYou extends StatelessWidget {
 
 class Items extends GetView<HomeControllerImp> {
   const Items({super.key, required this.itemsModel});
-  final ItemsModel itemsModel;
+  final ItemsGeneralModel itemsModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-       
+       controller.goToItemDetailsScreen(itemsModel);
       },
       child: Stack(children: [
                 Positioned(
