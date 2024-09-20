@@ -120,6 +120,7 @@ class ItemsControllerImp extends ItemsController{
   @override
   search(value) {
     if(value ==""){
+      statusRequest = StatusRequest.noone;
       isSearch = false;
     }
     update();

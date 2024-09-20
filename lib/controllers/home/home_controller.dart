@@ -102,6 +102,7 @@ class HomeControllerImp extends HomeController{
   @override
   search(value) {
     if(value == ""){
+      statusRequest = StatusRequest.noone;
       isSearch = false;
     }
     update();
