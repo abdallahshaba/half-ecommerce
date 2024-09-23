@@ -47,6 +47,7 @@ abstract class FavoriteController extends GetxController{
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
 
   }
 
@@ -69,7 +70,7 @@ abstract class FavoriteController extends GetxController{
         statusRequest = StatusRequest.failure;
       }
     }
-
+     update();
   }
   
  }

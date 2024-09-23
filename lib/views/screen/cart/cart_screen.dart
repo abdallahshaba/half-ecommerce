@@ -12,8 +12,14 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(CartControllerImp());
-    return  Scaffold(
-      bottomNavigationBar: const PriceDetailsCart(),
+    return  GetBuilder<CartControllerImp>(builder:(controller) {
+      return Scaffold(
+      bottomNavigationBar:  PriceDetailsCart(
+        onPressed: () {
+          
+        },
+        controllerCoupoon: controller.controllerCoupon!,
+      ),
       backgroundColor: AppColor.kBackgroundColorMain2,
       body: ListView(
         children: [
@@ -47,5 +53,6 @@ class CartScreen extends StatelessWidget {
         ],
       ),
     );
+    },);
   }
 }

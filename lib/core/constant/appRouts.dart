@@ -25,4 +25,13 @@ class AppRouts {
 
    //========================== Favorites ========================//
   static const String favoriteScreen = '/favoriteScreen';
+
+  //========================== Address ========================//
+  static const String addressView = '/addressView';
+  static const String addressAdd = '/addressAdd';
+  static const String addressEdite = '/addressEdite';
+
+
+
+
 }

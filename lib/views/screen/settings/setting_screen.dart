@@ -1,6 +1,7 @@
 import 'package:e_commerce_app14/controllers/settings_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
+import 'package:e_commerce_app14/views/address/view_address.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,29 +38,31 @@ class SettingsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text("Address"),
-                              onTap: () {  },
-                              trailing: Icon(Icons.location_on_outlined),
+                              title: const Text("Address"),
+                              onTap: () { 
+                                Get.to( const ViewAdderssScreen() , transition: Transition.fadeIn);
+                               },
+                              trailing: const Icon(Icons.location_on_outlined),
                               ),
-                            Divider(),
+                            const Divider(),
                             ListTile(
-                              title: Text("About us"),
+                              title: const Text("About us"),
                               onTap: () {  },
-                              trailing: Icon(Icons.help_outline_sharp),
+                              trailing: const Icon(Icons.help_outline_sharp),
                               ),
-                            Divider(),
+                           const Divider(),
                             ListTile(
-                              title: Text("Contact us"),
+                              title: const Text("Contact us"),
                               onTap: () {  },
-                              trailing: Icon(Icons.phone_outlined),
+                              trailing: const Icon(Icons.phone_outlined),
                               ),
-                              Divider(),
+                             const Divider(),
                               ListTile(
-                              title: Text("Log out"),
+                              title: const Text("Log out"),
                               onTap: () { 
                                 controller.logout();
                                },
-                              trailing: Icon(Icons.logout_outlined),
+                              trailing: const Icon(Icons.logout_outlined),
                               ),
                           ],
                         ),

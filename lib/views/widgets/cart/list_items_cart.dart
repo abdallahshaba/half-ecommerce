@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app14/controllers/cart/cart_controller.dart';
-import 'package:e_commerce_app14/core/class/handling_data_view.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/data/models/cart_model.dart';
@@ -13,9 +12,7 @@ class ListItemsCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CartControllerImp>(builder:(controller) => HandlingDataView(
-      statusRequest: controller.statusRequest, 
-      widget: ListView.builder(
+    return GetBuilder<CartControllerImp>(builder:(controller) =>  ListView.builder(
       itemCount: controller.data.length,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -25,7 +22,7 @@ class ListItemsCart extends StatelessWidget {
         );
       },
     )
-      ),);
+      );
   }
 }
 
@@ -36,34 +33,90 @@ class Cardd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   CartControllerImp controllerImp = Get.put(CartControllerImp());
-    return Card(
-                    child: SizedBox(
-                      child: 
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: CachedNetworkImage(
-                           imageUrl: "${AppLink.imageItems}/${cartModel.itemsImage!}" , fit: BoxFit.contain , height: 90,
-                                        
-                            ),),
-                           Expanded(
-                            flex: 3,
-                            child: ListTile(title:  Text("${cartModel.itemsName}" , style: Styles.boldtextStyle16,) , subtitle: Text("${cartModel.itemsPrice} \$" , style: Styles.boldtextStyle18.copyWith(color: AppColor.kBackgroundColorMain),),)),
-                           Expanded(child: Column(children: [
-                            IconButton(onPressed: ()async{
-                             await controllerImp.addCart(cartModel.itemsId);
-                              controllerImp.refreshVariableCart();
-                            }, icon: const Icon(Icons.add)),
-                            Text("${cartModel.countitems}" , style: Styles.boldtextStyle16,),
-                            IconButton(onPressed: ()async{
-                             await controllerImp.deleteCart(cartModel.itemsId);
-                              controllerImp.refreshVariableCart();
-                            }, icon: const Icon(Icons.remove)),
-                          ],))
-                        ],
+    return InkWell(
+      onTap: () {
+      },
+      child: Stack(
+        children: [
+          Card(
+              child: SizedBox(
+                child: 
+                  Row(
+                    children: [
+                     Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: CachedNetworkImage(
+                          imageUrl: "${AppLink.imageItems}/${cartModel.itemsImage!}" , fit: BoxFit.contain , height: 90,             
+                        ),
+                      ),),      
+                              cartModel.offers != null && int.tryParse(cartModel.offers!) != 0? Expanded(
+                                flex: 3,
+                                child: ListTile(
+                                  title:  Text("${cartModel.itemsName}" , 
+                                  style: Styles.boldtextStyle16,) , 
+                                  subtitle:  Row(
+                                    children: [
+                                      Text("${cartModel.newPrice} \$ " , 
+                                      style: Styles.boldtextStyle18.copyWith(color: AppColor.kBackgroundColorMain),),
+                                      const Text("(After OFF)")
+                                    ],
+                                  ),)) : Expanded(
+                                flex: 3,
+                                child: ListTile(
+                                  title:  Text("${cartModel.itemsName}" , 
+                                  style: Styles.boldtextStyle16,),
+                                  subtitle:  Text("${cartModel.itemsPrice} \$" , 
+                                  style: Styles.boldtextStyle18.copyWith(color: AppColor.kBackgroundColorMain),),)) ,
+                               Expanded(
+                                child: Column(
+                                  children: [
+                                IconButton(
+                                  onPressed: () async {
+                                    await controllerImp.addCart(cartModel.itemsId);
+                                    await controllerImp.countAndPrice(); 
+                                    controllerImp.refreshVariableCart();
+                                  },
+                                  icon: const Icon(Icons.add),
+                                ),
+                                Text("${cartModel.countitems}" , style: Styles.boldtextStyle16,),
+                                IconButton(
+                                  onPressed: () async {
+                                    await controllerImp.deleteCart(cartModel.itemsId);
+                                    await controllerImp.countAndPrice(); 
+                                    controllerImp.refreshVariableCart();
+                                  },
+                                  icon: const Icon(Icons.remove),
+                                ),
+                              ],
+                              ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  );
+                       cartModel.offers != null && int.tryParse(cartModel.offers!) != 0? Positioned(
+                                  left: 300,
+                                  bottom: 45,
+                                  child: Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orange,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Center(
+                                    child: Column(
+                                      children: [
+                                        const Text("OFF"  , style: Styles.boldtextStyle14,),
+                                        Text("${cartModel.offers}%" , style: Styles.boldtextStyle14,)
+                                      ],
+                                    ),
+                                  ),                             ),
+                                ): const SizedBox.shrink(),
+      ]
+      ),
+    );
   }
 }

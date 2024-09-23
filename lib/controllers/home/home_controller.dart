@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/controllers/fav/favorite_controller.dart';
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
@@ -20,7 +21,8 @@ abstract class HomeController extends GetxController {
 class HomeControllerImp extends HomeController{
 
   TextEditingController? searchh ;
-
+  
+   FavoriteControllerImp favoriteControllerImp = FavoriteControllerImp();
 
   MyServices myServices = Get.find();
   String? username;
@@ -32,7 +34,6 @@ class HomeControllerImp extends HomeController{
   List offersItem = [];
   List<ItemsGeneralModel> listSearchData = [];
   bool isSearch = false;
-
   String? lang ;
   late StatusRequest statusRequest;
 
@@ -133,4 +134,5 @@ class HomeControllerImp extends HomeController{
       "itemModelArg" :itemsModel
     });
   }
+  
   }

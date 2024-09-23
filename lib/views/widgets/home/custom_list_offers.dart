@@ -26,105 +26,110 @@ class CustomListOffers extends StatelessWidget {
   }
 }
 
-class SallingItems extends StatelessWidget {
+class SallingItems extends GetView<HomeControllerImp> {
   const SallingItems({super.key, required this.offersModel});
   final ItemsGeneralModel offersModel;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-              Positioned(
-                top: 20,
-                left: 3,
-                child: Container(
-                  height: 145,
-                  width: 145,
-                  decoration: const BoxDecoration(
-                      color:  Color.fromARGB(255, 255, 255, 255),
-                      borderRadius:  BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10)),
-                          ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(
-                  top: 9,
-                  left: 40,
-                  right: 10,
-                  bottom: 0,
-                ),
-                margin: const EdgeInsets.only(left: 10),
-                
-                width: 280,
-                decoration: const BoxDecoration(),
-                child: CachedNetworkImage(
-                         imageUrl: AppLink.imageItems + "/" + offersModel.itemsImage! , fit: BoxFit.contain , height: 130,
-                                      
-                                    ),
-              ),
-              Positioned(
-                top: 25,
-                left: 0,
-                child: SizedBox(
-                  width: 120,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12),
-                        child: Text(
-                          "${offersModel.itemsName}",
-                          style: Styles.boldtextStyle14.copyWith(color: Colors.black),
-                        ),
-                      ),
-                      const SizedBox(height: 5,),
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        height: 29,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10)
-                          ),
-                          color: AppColor.kBackgroundColorMain
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Text("${offersModel.newPrice} \$" ,style: Styles.boldtextStyle14.copyWith(color:Colors.white),),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Text(
-                                        '${offersModel.itemsPrice} \$',
-                                        style: Styles.boldtextStyle14.copyWith(
-                                          decoration: TextDecoration.lineThrough,
-                                          decorationThickness: 2
-                                          )
-                                          ),
-                      )],
+    return InkWell(
+      onTap: () {
+        controller.goToItemDetailsScreen(offersModel);
+      },
+      child: Stack(
+        children: [
+                Positioned(
+                  top: 20,
+                  left: 3,
+                  child: Container(
+                    height: 145,
+                    width: 145,
+                    decoration: const BoxDecoration(
+                        color:  Color.fromARGB(255, 255, 255, 255),
+                        borderRadius:  BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10)),
+                            ),
                   ),
                 ),
+                Container(
+                  padding: const EdgeInsets.only(
+                    top: 9,
+                    left: 40,
+                    right: 10,
+                    bottom: 0,
+                  ),
+                  margin: const EdgeInsets.only(left: 10),
+                  
+                  width: 280,
+                  decoration: const BoxDecoration(),
+                  child: CachedNetworkImage(
+                           imageUrl: AppLink.imageItems + "/" + offersModel.itemsImage! , fit: BoxFit.contain , height: 130,
+                                        
+                                      ),
+                ),
+                Positioned(
+                  top: 25,
+                  left: 0,
+                  child: SizedBox(
+                    width: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12),
+                          child: Text(
+                            "${offersModel.itemsName}",
+                            style: Styles.boldtextStyle14.copyWith(color: Colors.black),
+                          ),
+                        ),
+                        const SizedBox(height: 5,),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          height: 29,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10)
+                            ),
+                            color: AppColor.kBackgroundColorMain
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 5),
+                            child: Text("${offersModel.newPrice} \$" ,style: Styles.boldtextStyle14.copyWith(color:Colors.white),),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5),
+                          child: Text(
+                                          '${offersModel.itemsPrice} \$',
+                                          style: Styles.boldtextStyle14.copyWith(
+                                            decoration: TextDecoration.lineThrough,
+                                            decorationThickness: 2
+                                            )
+                                            ),
+                        )],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 20,
+                  child: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 89, 0),
+                    borderRadius: BorderRadius.circular(26),
+                  ),
+                  child: Column(
+                    children: [
+                     const SizedBox(height: 4,),
+                      Text("OFF" , style: Styles.boldtextStyle12.copyWith(color: Colors.white),),
+                      Text("${offersModel.offers}%" ,style: Styles.boldtextStyle12.copyWith(color:Colors.white),),
+                    ],
+                  ),
+                ))
+              ]
               ),
-              Positioned(
-                bottom: 20,
-                child: Container(
-                height: 45,
-                width: 45,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 89, 0),
-                  borderRadius: BorderRadius.circular(26),
-                ),
-                child: Column(
-                  children: [
-                   const SizedBox(height: 4,),
-                    Text("OFF" , style: Styles.boldtextStyle12.copyWith(color: Colors.white),),
-                    Text("${offersModel.offers}%" ,style: Styles.boldtextStyle12.copyWith(color:Colors.white),),
-                  ],
-                ),
-              ))
-            ]
-            );
+    );
   }
 }

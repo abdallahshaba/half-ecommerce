@@ -26,55 +26,68 @@ class CartControllerImp extends CartController{
   List data = [];
   double totalPrice = 0.0;
   int totalItems = 0;
+    
+  TextEditingController? controllerCoupon;
+
+
+
+
+
+
 
   @override
   void onInit() {
     viewItemsCart();
     countAndPrice();
+    controllerCoupon = TextEditingController();
     super.onInit();
   }
   
-  @override
-  addCart(itemid) async {
-    statusRequest = StatusRequest.loading;
-    var response = await cartData.addCart(myServices.sharedPreference.getString("id"), itemid);
-     statusRequest = handlingData(response);
+@override
+addCart(itemid) async {
+  statusRequest = StatusRequest.loading;
+  var response = await cartData.addCart(myServices.sharedPreference.getString("id"), itemid);
+  statusRequest = handlingData(response);
 
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-        Get.snackbar("Done", "The item has been added to the cart" , 
-        duration: const Duration(milliseconds: 1500) , 
-        icon: const Icon(Icons.done) , 
+  if (StatusRequest.success == statusRequest) {
+    if (response['status'] == 'success') {
+      Get.snackbar("Done", "The item has been added to the cart",
+        duration: const Duration(milliseconds: 1500),
+        icon: const Icon(Icons.done),
         animationDuration: const Duration(milliseconds: 1000),
         backgroundColor: AppColor.kBackgroundColorMain2
-        );
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
+      );
+      // هنا يتم استدعاء دالة تحديث الأسعار بعد إضافة المنتج
+      await countAndPrice();
+    } else {
+      statusRequest = StatusRequest.failure;
     }
-    update();
   }
+  update();
+}
   
   @override
-  deleteCart(itemid)async {
-    statusRequest = StatusRequest.loading;
-    var response = await cartData.deleteCart(myServices.sharedPreference.getString("id"), itemid);
-     statusRequest = handlingData(response);
+deleteCart(itemid) async {
+  statusRequest = StatusRequest.loading;
+  var response = await cartData.deleteCart(myServices.sharedPreference.getString("id"), itemid);
+  statusRequest = handlingData(response);
 
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-         Get.snackbar("Done", "The item has been removed to the cart" , 
-        duration: const Duration(milliseconds: 1500) , 
-        icon: const Icon(Icons.done) , 
+  if (StatusRequest.success == statusRequest) {
+    if (response['status'] == 'success') {
+      Get.snackbar("Done", "The item has been removed from the cart",
+        duration: const Duration(milliseconds: 1500),
+        icon: const Icon(Icons.done),
         animationDuration: const Duration(milliseconds: 1000),
         backgroundColor: AppColor.kBackgroundColorMain2
-        );
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
+      );
+      // تحديث السعر بعد حذف المنتج
+      await countAndPrice();
+    } else {
+      statusRequest = StatusRequest.failure;
     }
-    update();
   }
+  update();
+}
   
   @override
   getCount(itemid) async{
@@ -102,13 +115,15 @@ class CartControllerImp extends CartController{
      statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success'){
-            Map countAndPrice = response['totalCountAndPrice'];
+        Map countAndPrice = response['totalCountAndPrice'];
         totalPrice = double.parse(countAndPrice['totalPrice']);
         totalItems = int.parse(countAndPrice['totalItems']);
+        update();
         }
         else{
           totalItems = 0;
           totalPrice = 0;
+          update();
         }
       } else {
         statusRequest = StatusRequest.failure;
@@ -120,11 +135,11 @@ class CartControllerImp extends CartController{
   refreshVariableCart() {
     resetVarCart();
     viewItemsCart();
+    update();
   }
   
   @override
   resetVarCart() {
-    totalPrice = 0.0;
     data.clear();
   }
   
@@ -136,8 +151,9 @@ class CartControllerImp extends CartController{
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         data.addAll(response['message']);
+        update();
       } else {
-        statusRequest = StatusRequest.failure;
+        //statusRequest = StatusRequest.failure;
       }
     }
     update();

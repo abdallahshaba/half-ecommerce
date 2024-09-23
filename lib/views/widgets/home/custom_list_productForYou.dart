@@ -33,11 +33,7 @@ class Items extends GetView<HomeControllerImp> {
   final ItemsGeneralModel itemsModel;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-       controller.goToItemDetailsScreen(itemsModel);
-      },
-      child: Stack(children: [
+    return  Stack(children: [
                 Positioned(
                   top: 10,
                   left: 3,
@@ -51,19 +47,24 @@ class Items extends GetView<HomeControllerImp> {
                             bottomLeft: Radius.circular(10))),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 5,
-                    left: 40,
+                InkWell(
+                  onTap: () {
+                    controller.goToItemDetailsScreen(itemsModel);
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                      top: 5,
+                      left: 40,
+                    ),
+                    margin: const EdgeInsets.only(left: 10),
+                    height: 150,
+                    width: 280,
+                    decoration: const BoxDecoration(),
+                    child: CachedNetworkImage(
+                             imageUrl: "${AppLink.imageItems}/${itemsModel.itemsImage!}" , fit: BoxFit.contain , height: 130,
+                                          
+                                        ),
                   ),
-                  margin: const EdgeInsets.only(left: 10),
-                  height: 150,
-                  width: 280,
-                  decoration: const BoxDecoration(),
-                  child: CachedNetworkImage(
-                           imageUrl: "${AppLink.imageItems}/${itemsModel.itemsImage!}" , fit: BoxFit.contain , height: 130,
-                                        
-                                      ),
                 ),
                 Positioned(
                   top: 20,
@@ -111,7 +112,6 @@ class Items extends GetView<HomeControllerImp> {
                   ),
                 ),
               ]
-              ),
-    );
+              );
   }
 }

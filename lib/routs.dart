@@ -2,6 +2,8 @@ import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/middleware/my_middleware.dart';
 //import 'package:e_commerce_app14/test.dart';
 import 'package:e_commerce_app14/text_Packeages.dart';
+import 'package:e_commerce_app14/views/address/add_address.dart';
+import 'package:e_commerce_app14/views/address/view_address.dart';
 import 'package:e_commerce_app14/views/screen/Auth/forget_password_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/resetPassword_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/signUp_screen.dart';
@@ -44,4 +46,9 @@ List<GetPage<dynamic>>? routes = [
 
   //============================ items ===================================
   GetPage(name: AppRouts.favoriteScreen, page: () => const FavoriteScreen()),
+
+
+    //============================ address ===================================
+  GetPage(name: AppRouts.addressView, page: () => const ViewAdderssScreen()),
+  GetPage(name: AppRouts.addressAdd, page: () => const AddAddressScreen()),
 ];
