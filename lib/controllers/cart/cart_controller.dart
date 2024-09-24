@@ -3,6 +3,8 @@ import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/cart/cart_data.dart';
+import 'package:e_commerce_app14/data/dataSource/remote/coupon/coupon_data.dart';
+import 'package:e_commerce_app14/data/models/coupn_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +16,8 @@ abstract class CartController extends GetxController{
    getCount(itemid);
    resetVarCart();
    refreshVariableCart();
-
+   getCouponDataa();
+   totalPriceAfterAddCoupon();
 }
 
 class CartControllerImp extends CartController{
@@ -29,7 +32,12 @@ class CartControllerImp extends CartController{
     
   TextEditingController? controllerCoupon;
 
+  CouponsData couponsData = CouponsData(Get.find());
 
+  CouponModel model = CouponModel();
+
+  String? couponName;
+  int? couponDiscount = 0;
 
 
 
@@ -158,6 +166,44 @@ deleteCart(itemid) async {
     }
     update();
   }
+  
+  @override
+  getCouponDataa() async {
+     statusRequest = StatusRequest.loading;
+     update();
+  var response = await couponsData.getCouponData(controllerCoupon!.text);
+  statusRequest = handlingData(response);
+
+  if (StatusRequest.success == statusRequest) {
+    if (response['status'] == 'success') {
+      Map<String, dynamic> dataCoupon = response['data'];
+      model = CouponModel.fromJson(dataCoupon);
+      couponName = model.couponName;
+      couponDiscount = int.parse(model.couponDiscount!);
+      Get.snackbar("Done", "Discount Added",
+        duration: const Duration(milliseconds: 1500),
+        icon: const Icon(Icons.done),
+        animationDuration: const Duration(milliseconds: 1000),
+        backgroundColor: AppColor.kBackgroundColorMain2
+      );
+    } else {
+      couponDiscount = 0;
+      couponName = null;
+      Get.snackbar("Failed", "Invalid Coupon",
+        duration: const Duration(milliseconds: 1500),
+        animationDuration: const Duration(milliseconds: 1000),
+        backgroundColor: AppColor.kBackgroundColorMain2
+      );
+    }
+  }
+  update();
+  }
+  
+  @override
+  totalPriceAfterAddCoupon() {
+    return (totalPrice - totalPrice* couponDiscount! /100);
+  }
+
   
 }
 

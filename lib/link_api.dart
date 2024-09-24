@@ -33,6 +33,10 @@ class AppLink {
   static const String cartDelete = "$linkServerName/cart/delete.php";
   static const String cartGetCountOfItems = "$linkServerName/cart/get_count_of_items.php";
 
+  //============================Coupon===============================//
+  static const String checkcoupon = "$linkServerName/coupons/check_coupon.php";
+
+
 
 
 } 

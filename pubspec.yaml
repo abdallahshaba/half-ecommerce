@@ -31,6 +31,7 @@ dependencies:
   auto_animated: ^3.0.1
   badges: ^3.1.2
   cached_network_image: ^3.2.0
+  flutter_keyboard_visibility: ^5.0.3
   cloud_firestore: ^4.15.8
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
