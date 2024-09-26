@@ -25,5 +25,8 @@ class AppImageAsset {
   static const String f = '$routeLottie/f.json';
   static const String success = '$routeLottie/success.json';
   static const String stop = '$routeLottie/stop.json';
+  static const String dataEmpty = '$routeLottie/Animation - 1727368684031.json';
+  static const String loadingEcommerce = '$routeLottie/loadingEcommerce.json';
+  static const String loading14 = '$routeLottie/loading14.json';
   // static const String onBoardingImageFour  = '$routeImage/onboardingfour.PNG';
 }

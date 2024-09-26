@@ -16,6 +16,24 @@ validInput(String value, int min, int max, String type) {
     }
   }
 
+   if (type == "region") {
+    if (!GetUtils.isUsername(value)) {
+      return "Not Valid Region";
+    }
+  }
+
+  if (type == "city") {
+    if (!GetUtils.isUsername(value)) {
+      return "Not Valid City";
+    }
+  }
+
+  if (type == "street") {
+    if (!GetUtils.isUsername(value)) {
+      return "Not Valid Street";
+    }
+  }
+
   if (type == "phone") {
     if (!GetUtils.isPhoneNumber(value)) {
       return "Not Valid Phone Number";

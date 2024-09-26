@@ -13,6 +13,7 @@ class AppRouts {
   static const String verifyCodeSignUp = '/verifyCodesignup';
   static const String testPage = '/test';
   static const String failedScreen = '/failedScreen';
+  static const String settingsScreen = '/settingsScreen';
   static const String testView = '/testView';
   //========================= Home ===========================//
 
@@ -30,6 +31,9 @@ class AppRouts {
   static const String addressView = '/addressView';
   static const String addressAdd = '/addressAdd';
   static const String addressEdite = '/addressEdite';
+  
+  //========================== Address ========================//
+  static const String checkOut = '/checkOut';
 
 
 

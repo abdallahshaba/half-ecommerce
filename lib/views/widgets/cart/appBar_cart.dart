@@ -10,41 +10,11 @@ class AppBarCart extends GetView<ItemDetailsControllerImp> {
   @override
   Widget build(BuildContext context) {
 
-    return  Container(
-                  alignment: Alignment.center,
-                  child: const Row(
-                    children: [
-      
-              // Expanded(
-              //   child: Container(
-              //     alignment: Alignment.centerLeft,
-              //     child: IconButton(
-              //       onPressed: () {
-              //         Get.back();
-              //         controller.refersh();
-              //       },
-              //       icon: const Icon(Icons.arrow_back),
-              //     ),
-              //   ),
-              // ),
-
-              Expanded(child: Optiontwo())
-              ]
-              )
-              );
-  }
-}
-
-
-class Optiontwo extends StatelessWidget {
-  const Optiontwo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColor.kBackgroundColorMain2,
-      centerTitle: true,
-      title: Text("Cart" , style: Styles.boldtextStyle24,),
-    );
+    return   AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
+          centerTitle: true,
+          backgroundColor: AppColor.kBackgroundColorMain,
+          title: Text(title , style: Styles.boldtextStyle22.copyWith(color: Colors.white),),
+        );
   }
 }

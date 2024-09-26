@@ -12,11 +12,12 @@ class FavoriteScreen extends GetView<MyFavoriteControllerImp> {
   Widget build(BuildContext context) {
     Get.put(MyFavoriteControllerImp());
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.kBackgroundColorMain2,
-        centerTitle: true,
-        title: const Text("Favorites" , style: Styles.boldtextStyle24,),
-      ),
+       appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.white),
+          centerTitle: true,
+          backgroundColor: AppColor.kBackgroundColorMain,
+          title: Text("Favorites" , style: Styles.boldtextStyle22.copyWith(color: Colors.white),),
+        ),
       backgroundColor: AppColor.kBackgroundColorMain2,
       body: Container(
         padding: const EdgeInsets.all(5),

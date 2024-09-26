@@ -25,7 +25,7 @@ class GridViewFavorites extends StatelessWidget {
               crossAxisCount: 2
               ), 
             itemBuilder:(context, index) {
-              return  CardItem(
+              return CardItem(
                 myFavoriteModel: MyFavoriteModel.fromJson(controller.data[index]),
               );
             },

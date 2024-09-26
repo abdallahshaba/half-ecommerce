@@ -20,8 +20,8 @@ class AppLink {
   static const String deleteFromFavoriteScreen = "$linkServerName/favoritesss/delete_from_fav_screen.php";
 
  //============================Items===============================//
- static const String itemsPage = "$linkServerName/itemss/view.php";
- static const String searchItems = "$linkServerName/search/search.php";
+  static const String itemsPage = "$linkServerName/itemss/view.php";
+  static const String searchItems = "$linkServerName/search/search.php";
   //============================Image===============================//
   static const String imageStatic = "$linkServerName/upload";
   static const String imageCategories = "$imageStatic/categories";
@@ -34,9 +34,14 @@ class AppLink {
   static const String cartGetCountOfItems = "$linkServerName/cart/get_count_of_items.php";
 
   //============================Coupon===============================//
+
   static const String checkcoupon = "$linkServerName/coupons/check_coupon.php";
 
+  //============================address===============================//
 
+  static const String addAddress    = "$linkServerName/addres/add_addres.php";
+  static const String viewAddress   = "$linkServerName/addres/view_addres.php";
+  static const String editeAddress  = "$linkServerName/addres/edite_addres.php";
+  static const String deleteAddress = "$linkServerName/addres/delete_addres.php";
 
-
-} 
+}

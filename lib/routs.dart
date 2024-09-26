@@ -3,6 +3,7 @@ import 'package:e_commerce_app14/core/middleware/my_middleware.dart';
 //import 'package:e_commerce_app14/test.dart';
 import 'package:e_commerce_app14/text_Packeages.dart';
 import 'package:e_commerce_app14/views/address/add_address.dart';
+import 'package:e_commerce_app14/views/address/edite_address.dart';
 import 'package:e_commerce_app14/views/address/view_address.dart';
 import 'package:e_commerce_app14/views/screen/Auth/forget_password_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/resetPassword_screen.dart';
@@ -12,12 +13,14 @@ import 'package:e_commerce_app14/views/screen/Auth/success_reset_password.dart';
 import 'package:e_commerce_app14/views/screen/Auth/success_signUp.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifyCode_signUp_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifycode_screen.dart';
+import 'package:e_commerce_app14/views/screen/checkout/checkout_screen.dart';
 import 'package:e_commerce_app14/views/screen/favorite/favorite_scre.dart';
 import 'package:e_commerce_app14/views/screen/home/general_home.dart';
 import 'package:e_commerce_app14/views/screen/items/items_screnn.dart';
 import 'package:e_commerce_app14/views/screen/items_details/items_detiel_scre.dart';
 import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:e_commerce_app14/views/screen/onBoarding/onBoarding_screen.dart';
+import 'package:e_commerce_app14/views/screen/settings/setting_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
@@ -40,6 +43,8 @@ List<GetPage<dynamic>>? routes = [
   //============================ Home ===================================
   GetPage(name: AppRouts.homeScreen, page: () => const HomeGeneral()),
   GetPage(name: AppRouts.homeGeneral, page: () => const HomeGeneral()),
+  GetPage(name: AppRouts.settingsScreen, page: () => const SettingsScreen()),
+
 //============================ items ===================================
   GetPage(name: AppRouts.itemsScreen, page: () => const ItemsScreen()),
   GetPage(name: AppRouts.itemsDetailsScreen, page: () => const ItemDetailsScreen()),
@@ -51,4 +56,9 @@ List<GetPage<dynamic>>? routes = [
     //============================ address ===================================
   GetPage(name: AppRouts.addressView, page: () => const ViewAdderssScreen()),
   GetPage(name: AppRouts.addressAdd, page: () => const AddAddressScreen()),
+  GetPage(name: AppRouts.addressEdite, page: () => const EditAddressScreen()),
+
+    //============================ address ===================================
+  GetPage(name: AppRouts.checkOut, page: () => const CheckOutScreen()),
+
 ];

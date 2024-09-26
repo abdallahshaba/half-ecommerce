@@ -2,6 +2,7 @@ import 'package:e_commerce_app14/controllers/cart/cart_controller.dart';
 import 'package:e_commerce_app14/core/class/handling_data_view.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
+import 'package:e_commerce_app14/views/screen/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -73,7 +74,9 @@ class PriceDetailsCart extends StatelessWidget {
                     width: double.infinity,
                     child: MaterialButton(
                       height: 50,
-                      onPressed: (){} , 
+                      onPressed: (){
+                        Get.to(const CheckOutScreen() , transition: Transition.fadeIn);
+                      } , 
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))  , 
                       color: AppColor.kBackgroundColorMain ,
                        child: Icon(Icons.shopping_cart , size: 35, color: Colors.white,)

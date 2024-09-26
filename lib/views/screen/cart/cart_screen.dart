@@ -1,7 +1,6 @@
 import 'package:e_commerce_app14/controllers/cart/cart_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
-import 'package:e_commerce_app14/views/widgets/cart/appBar_cart.dart';
 import 'package:e_commerce_app14/views/widgets/cart/custom_button_coupon.dart';
 import 'package:e_commerce_app14/views/widgets/cart/custom_textField_coupon.dart';
 import 'package:e_commerce_app14/views/widgets/cart/list_items_cart.dart';
@@ -17,12 +16,17 @@ class CartScreen extends StatelessWidget {
     Get.put(CartControllerImp());
     return  GetBuilder<CartControllerImp>(builder:(controller) {
       return Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.white),
+          centerTitle: true,
+          backgroundColor: AppColor.kBackgroundColorMain,
+          title: Text("Cart" , style: Styles.boldtextStyle22.copyWith(color: Colors.white),),
+        ),
       bottomNavigationBar: const  PriceDetailsCart(),
       backgroundColor: AppColor.kBackgroundColorMain2,
       body: ListView(
         children: [
          const SizedBox(height: 10,),
-         const AppBarCart(title: "Cart"),
          const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -43,8 +47,7 @@ class CartScreen extends StatelessWidget {
             padding: const  EdgeInsets.all(8),
             child: Column(
               children: [
-                const ListItemsCart(),
-                 
+                const ListItemsCart(), 
                  GetBuilder<CartControllerImp>(builder:(controller) => Padding(
                    padding: const EdgeInsets.all(8.0),
                    child: SizedBox(
