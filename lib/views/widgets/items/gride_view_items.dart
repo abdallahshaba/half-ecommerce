@@ -129,4 +129,24 @@ class CardItem extends GetView<ItemsControllerImp> {
                 ]),
               );
   }
+
+
+
+
+
+
+
+
+  // Positioned(
+  //                   left: 105,
+  //                   child: Container(
+  //                     height: 100,
+  //                     width: 100,
+  //                     padding: EdgeInsets.symmetric(horizontal: 8),
+  //                     decoration: BoxDecoration(
+  //                       borderRadius: BorderRadius.circular(10),
+  //                     ),
+  //                     child: Lottie.asset(AppImageAsset.sale, height: 220, width: 300),
+  //                   ),
+  //                 ): const SizedBox.shrink() 
 }

@@ -61,30 +61,31 @@ class Lissst extends GetView<AddressController> {
   Widget build(BuildContext context) {
     return  Container(
       margin: const EdgeInsets.all(10),
-      height: 95,
           child: InkWell(
             onTap: (){
               controller.goToEditAddress(addressModel);
             },
             child: Card(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 6),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GetBuilder<AddressController>(builder:(controller) {
                     return Column(
                     children: [
-                      Row(children: [Text("Title ${i+1}"),],),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("${addressModel.addresName} , ${addressModel.addresCity} , ${addressModel.addresStreet}" , style: Styles.boldtextStyle16,),
-                          IconButton(onPressed: ()async{
-                           await controller.deleteAddress(addressModel.addresId);
-                            controller.refreshData();
-                          }, icon: const Icon(Icons.delete_forever))
-                      
-                        ],
+                        Text("Title ${i+1}"),
+                        IconButton(onPressed: ()async{
+                             await controller.deleteAddress(addressModel.addresId);
+                              controller.refreshData();
+                            }, icon: const Icon(Icons.delete_forever))
+                        ],),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50,
+                        child: Text("${addressModel.addresName} , ${addressModel.addresCity} , ${addressModel.addresStreet}" , style: Styles.boldtextStyle16,),
                       ),
                     ],
                   );
