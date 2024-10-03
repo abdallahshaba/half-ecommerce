@@ -13,6 +13,7 @@ import 'package:e_commerce_app14/views/screen/Auth/success_reset_password.dart';
 import 'package:e_commerce_app14/views/screen/Auth/success_signUp.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifyCode_signUp_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifycode_screen.dart';
+import 'package:e_commerce_app14/views/screen/cart/cart_screen.dart';
 import 'package:e_commerce_app14/views/screen/checkout/checkout_screen.dart';
 import 'package:e_commerce_app14/views/screen/favorite/favorite_scre.dart';
 import 'package:e_commerce_app14/views/screen/home/general_home.dart';
@@ -39,6 +40,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRouts.successSignUp, page: () => const SuccessSignUpScreen()),
   GetPage(name: AppRouts.verifyCodeSignUp, page: () => const VerifyCodeSignUpScreen()),
   GetPage(name: AppRouts.onBoarding, page: () => const OnBoardingScreen()),
+  GetPage(name: AppRouts.cartScreen, page: () => const CartScreen()),
+
   GetPage(name: AppRouts.testPakeages, page: () => const TestPakeages()),
   //============================ Home ===================================
   GetPage(name: AppRouts.homeScreen, page: () => const HomeGeneral()),

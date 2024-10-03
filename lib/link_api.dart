@@ -44,4 +44,8 @@ class AppLink {
   static const String editeAddress  = "$linkServerName/addres/edite_addres.php";
   static const String deleteAddress = "$linkServerName/addres/delete_addres.php";
 
+  //============================checkOut===============================//
+  static const String checkOut = "$linkServerName/orders/check_out.php";
+
+
 }

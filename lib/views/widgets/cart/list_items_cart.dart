@@ -80,7 +80,7 @@ class Cardd extends StatelessWidget {
                                   },
                                   icon: const Icon(Icons.add),
                                 ),
-                                Text("${cartModel.countitems}" , style: Styles.boldtextStyle16,),
+                                Text("${cartModel.totalitems}" , style: Styles.boldtextStyle16,),
                                 IconButton(
                                   onPressed: () async {
                                     await controllerImp.deleteCart(cartModel.itemsId);

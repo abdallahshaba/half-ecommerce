@@ -13,20 +13,26 @@ class CheckOutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CheckOutController());
-    return Scaffold(
+     Get.put(CheckOutController());
+    return GetBuilder<CheckOutController>(builder:(controller) => Scaffold(
       bottomNavigationBar: Container(
         margin: const EdgeInsets.symmetric(horizontal: 15),
         child: MaterialButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           color: AppColor.kBackgroundColorMain,
-          onPressed: (){} , child: Text("Check Out" , style: Styles.boldtextStyle16.copyWith(color: Colors.white),),),
+          onPressed: (){
+            controller.getCheckOut();
+          } , child: Text("Check Out" , style: Styles.boldtextStyle16.copyWith(color: Colors.white),),),
       ),
       backgroundColor: AppColor.kBackgroundColorMain2,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         title:  Text("Check Out",style: Styles.boldtextStyle20.copyWith(color: Colors.white),),
         centerTitle: true,
+        leading:  IconButton(onPressed: (){
+          Get.back();
+          controller.cartController.refreshVariableCart();
+        }, icon: const Icon(Icons.arrow_back)),
         backgroundColor: AppColor.kBackgroundColorMain,
       ),
       body: Padding(
@@ -44,18 +50,18 @@ class CheckOutScreen extends StatelessWidget {
               splashColor: Colors.transparent,
               borderRadius: BorderRadius.circular(10),
               onTap: (){
-                controller.selectionPayMent("cash");
+                controller.selectionPayMent("0");
               },
-              child: PaymentMethodCheckOut(title: "Cash" , isActive: controller.paymentMethod=="cash"? true : false,)),
+              child: PaymentMethodCheckOut(title: "Cash" , isActive: controller.paymentMethod=="0"? true : false,)),
             
             const SizedBox(height: 10, ),
 
              InkWell(
               splashColor: Colors.transparent,
               onTap: (){
-                controller.selectionPayMent("Payment");
+                controller.selectionPayMent("1");
               },
-              child: PaymentMethodCheckOut(title: "Payment Cards" , isActive: controller.paymentMethod=="Payment"? true : false,)),
+              child: PaymentMethodCheckOut(title: "Payment Cards" , isActive: controller.paymentMethod=="1"? true : false,)),
 
 
 
@@ -68,20 +74,20 @@ class CheckOutScreen extends StatelessWidget {
               children: [
                 InkWell(
                   splashColor: Colors.transparent,
-                  onTap: (){controller.selectionDelivery("Delivery");},
-                  child: DeliveryMethodCheckOut(title: "Delivery" , urL: "assets/images/006-delivery.png", isActive: controller.deliveryType=="Delivery"? true : false,)),
+                  onTap: (){controller.selectionDelivery("0");},
+                  child: DeliveryMethodCheckOut(title: "Delivery" , urL: "assets/images/006-delivery.png", isActive: controller.deliveryType=="0"? true : false,)),
                 
                 
                 InkWell(
                   splashColor: Colors.transparent,
-                  onTap: (){controller.selectionDelivery("Drive Thru");},
-                  child: DeliveryMethodCheckOut(title: "Drive Thru" , urL: "assets/images/drivethru.png", isActive: controller.deliveryType=="Drive Thru"? true : false,)),
+                  onTap: (){controller.selectionDelivery("1");},
+                  child: DeliveryMethodCheckOut(title: "Drive Thru" , urL: "assets/images/drivethru.png", isActive: controller.deliveryType=="1"? true : false,)),
               ],
             ),
              const SizedBox(height: 20,),
 
              
-            if(controller.deliveryType== "Delivery")  Column(
+            if(controller.deliveryType== "0")  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("Choose Shipping Address",style: Styles.boldtextStyle16,),
@@ -102,6 +108,6 @@ class CheckOutScreen extends StatelessWidget {
         ),
           ),)
       ),
-    );
+    ),);
   }
 }

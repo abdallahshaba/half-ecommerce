@@ -14,6 +14,10 @@ class AppRouts {
   static const String testPage = '/test';
   static const String failedScreen = '/failedScreen';
   static const String settingsScreen = '/settingsScreen';
+
+
+  static const String cartScreen = '/cartScreen';
+
   static const String testView = '/testView';
   //========================= Home ===========================//
 

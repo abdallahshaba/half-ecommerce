@@ -1,12 +1,15 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
+import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/cart/cart_data.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/coupon/coupon_data.dart';
 import 'package:e_commerce_app14/data/models/coupn_model.dart';
+import 'package:e_commerce_app14/views/screen/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 abstract class CartController extends GetxController{
    addCart(itemid);
@@ -18,6 +21,7 @@ abstract class CartController extends GetxController{
    refreshVariableCart();
    getCouponDataa();
    totalPriceAfterAddCoupon();
+   goToCheckOutScreen();
 }
 
 class CartControllerImp extends CartController{
@@ -125,7 +129,7 @@ deleteCart(itemid) async {
         if (response['status'] == 'success'){
         Map countAndPrice = response['totalCountAndPrice'];
         totalPrice = double.parse(countAndPrice['totalPrice']);
-        totalItems = int.parse(countAndPrice['totalItems']);
+        totalItems = int.parse(countAndPrice['allItems']);
         update();
         }
         else{
@@ -202,6 +206,26 @@ deleteCart(itemid) async {
   @override
   totalPriceAfterAddCoupon() {
     return (totalPrice - totalPrice* couponDiscount! /100);
+  }
+  
+  @override
+  goToCheckOutScreen() {
+    if(data.isEmpty){
+      return Get.defaultDialog(
+              title: "ُWarning",
+              titleStyle: const TextStyle(
+                  fontWeight: FontWeight.bold, color: AppColor.kPrimaryColor),
+              middleText: "The cart is empty",
+              middleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
+              actions: [
+                Lottie.asset(AppImageAsset.failedFace, height: 220, width: 300)
+              ]);
+    }
+    Get.to(const CheckOutScreen() , transition: Transition.fadeIn , arguments: {
+      "orderPriceArg" : totalPrice.toString(),
+      "orderCouponArg" : couponName?? "0",
+      "couponDiscountArg" : couponDiscount.toString(),
+    });
   }
 
   
