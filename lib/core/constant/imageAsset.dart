@@ -31,6 +31,8 @@ class AppImageAsset {
   static const String sale = '$routeLottie/Animation - 1727437834318.json';
   static const String cart = '$routeLottie/cart.json';
   static const String ecommerce = '$routeLottie/ecommerce.json';
+  static const String map = '$routeLottie/Animation - 1728141091829.json';
+
 
 
 

@@ -40,6 +40,7 @@ class CartControllerImp extends CartController{
 
   CouponModel model = CouponModel();
 
+
   String? couponName;
   int? couponDiscount = 0;
 

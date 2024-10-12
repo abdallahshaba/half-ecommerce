@@ -2,12 +2,14 @@ import 'package:e_commerce_app14/controllers/settings_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/views/address/view_address.dart';
+import 'package:e_commerce_app14/views/screen/orders/archieve.dart';
+import 'package:e_commerce_app14/views/screen/orders/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
    SettingsControllerImp controller = Get.put(SettingsControllerImp());
@@ -29,10 +31,16 @@ class SettingsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(100)),
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundColor: Colors.grey[100],
+                          backgroundColor: Colors.grey[200],
                           backgroundImage: const AssetImage(AppImageAsset.avatar),
                         ),
-                      ))]),
+                      ),
+                      ),
+                      Positioned(
+                        top: 200,
+                        child: Text(" Hi, ${controller.username}" , style: const TextStyle(fontSize: 16),))
+                      ]
+                      ),
                      const SizedBox(height: 100,),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -45,6 +53,22 @@ class SettingsScreen extends StatelessWidget {
                                   Get.to( const ViewAdderssScreen() , transition: Transition.fadeIn);
                                  },
                                 trailing: const Icon(Icons.location_on_outlined),
+                                ),
+                                const Divider(),
+                                ListTile(
+                                title: const Text("Orders"),
+                                onTap: () { 
+                                  Get.to( const PendingOrdersScreen() , transition: Transition.fadeIn);
+                                 },
+                                trailing: const Icon(Icons.shopping_cart_outlined),
+                                ),
+                              const Divider(),
+                                ListTile(
+                                title: const Text("Archive"),
+                                onTap: () { 
+                                  Get.to( const ArchiveOrdersScreen() , transition: Transition.fadeIn);
+                                 },
+                                trailing: const Icon(Icons.done),
                                 ),
                               const Divider(),
                               ListTile(

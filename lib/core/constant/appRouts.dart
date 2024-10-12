@@ -40,6 +40,16 @@ class AppRouts {
   static const String checkOut = '/checkOut';
 
 
+  //========================== orders ========================//
+  static const String pendingOreders = '/pendingOreders';
+  static const String archiveOreders = '/archiveOreders';
+  static const String orderDetails = '/orderDetails';
+
+
+
+
+
+
 
 
 }

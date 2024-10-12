@@ -121,6 +121,7 @@ class CheckOutController extends GetxController{
     print("//////////////////////////////////////////$couponName");
     print("//////////////////////////////////////////$totalPrice");
 
+
     getAddress2();
     super.onInit();
   }

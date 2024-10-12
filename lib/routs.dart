@@ -21,6 +21,9 @@ import 'package:e_commerce_app14/views/screen/items/items_screnn.dart';
 import 'package:e_commerce_app14/views/screen/items_details/items_detiel_scre.dart';
 import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:e_commerce_app14/views/screen/onBoarding/onBoarding_screen.dart';
+import 'package:e_commerce_app14/views/screen/orders/archieve.dart';
+import 'package:e_commerce_app14/views/screen/orders/order_details.dart';
+import 'package:e_commerce_app14/views/screen/orders/pending.dart';
 import 'package:e_commerce_app14/views/screen/settings/setting_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -63,5 +66,11 @@ List<GetPage<dynamic>>? routes = [
 
     //============================ address ===================================
   GetPage(name: AppRouts.checkOut, page: () => const CheckOutScreen()),
+
+
+    //============================ orders ===================================
+  GetPage(name: AppRouts.pendingOreders, page: () => const PendingOrdersScreen()),
+  GetPage(name: AppRouts.archiveOreders, page: () => const ArchiveOrdersScreen()),
+  GetPage(name: AppRouts.orderDetails, page: () => const OrderDetailsScteen()),
 
 ];
