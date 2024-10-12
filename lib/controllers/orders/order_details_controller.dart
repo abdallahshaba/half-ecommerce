@@ -13,17 +13,17 @@ class OrderDetailsController extends GetxController{
  MyServices myServices = Get.find();
  OrdersData ordersData = OrdersData(Get.find()); 
 
- List<OrderDetailsModel> data = [];
+ List<OrdersDetailsModel> data = [];
 
    getData2 () async {
     statusRequest = StatusRequest.loading;
-    var response = await ordersData.getOrderDetailsData(ordersModel.addresId);
+    var response = await ordersData.getOrderDetailsData(ordersModel.ordersId);
     print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List listData = response['data'];
-        data.addAll(listData.map((e) => OrderDetailsModel.fromJson(e)));
+        data.addAll(listData.map((e) => OrdersDetailsModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
