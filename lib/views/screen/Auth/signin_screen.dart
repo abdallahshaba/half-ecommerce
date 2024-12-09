@@ -33,7 +33,9 @@ class _SignInScreenState extends State<SignInScreen> {
   void initState() {
     initialData();
     super.initState();
+    
   }
+
   @override
   Widget build(BuildContext context) {
      Get.put(SignInControllerImp());
@@ -104,7 +106,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       obscureText: controller.isShowPassword,
                       isNumber: false,
                       valid: (value) {
-                        return validInput(value!, 2, 20, "password");
+                        return validInput(value!, 2, 140, "password");
                       },
                       mycontroller: controller.password ,
                       labeltext: "Password",

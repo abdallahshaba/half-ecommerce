@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/views/offers/offers_screen.dart';
 import 'package:e_commerce_app14/views/screen/home/home_screen.dart';
 import 'package:e_commerce_app14/views/screen/settings/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ class GeneralHomeControllerImp extends GeneralHomeController{
   List<Widget> listPages = [
     const HomeScreen(),
     const SettingsScreen(),
-    const Column(children: [Center(child: Text("Profile"),),],),];
+    const Column(children: [Center(child: Text("Profile"),),],),
+    const OffersScreen(),
+    ];
   
   @override
   changePage(int value) {

@@ -10,7 +10,7 @@ class CutomButtonLanguage extends StatelessWidget {
     return MaterialButton(
                 onPressed: onPressed,
                 textColor: Colors.white,
-                color: AppColor.kPrimaryColor,
+                color: AppColor.kBackgroundColorMain,
                 child:  Text(
                   textName,
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

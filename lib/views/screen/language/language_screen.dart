@@ -1,4 +1,5 @@
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
+import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/core/localization/local_controller.dart';
 import 'package:e_commerce_app14/views/widgets/language/custom_button.dart';
@@ -12,6 +13,7 @@ class LanguageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
    LocalController controller = Get.put(LocalController());
     return Scaffold(
+      backgroundColor: AppColor.kBackgroundColorMain2,
       body: Container(
         padding: const EdgeInsets.all(15),
          child: Column(

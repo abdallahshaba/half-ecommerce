@@ -19,7 +19,7 @@ class SignUpControllerImp extends SignUpController {
 
   late TextEditingController username;
   late TextEditingController email;
-  late TextEditingController password;
+  late TextEditingController hashedPassword;
   late TextEditingController phone;
 
    StatusRequest? statusRequest ;
@@ -34,13 +34,14 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await signupData.postdata(
-          username.text, password.text, email.text , phone.text);
+          username.text, hashedPassword.text, email.text , phone.text);
       print("=============================== Controller $response ");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
-          Get.offNamed(AppRouts.verifyCodeSignUp);
+          Get.offNamed(AppRouts.signIn);
+         Get.snackbar("Done", "Account created" ); 
         } else {
               Get.defaultDialog(
               title: "ُWarning",
@@ -49,7 +50,7 @@ class SignUpControllerImp extends SignUpController {
               middleText: "Phone Number Or Email Already Exists",
               middleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
               actions: [
-                Lottie.asset(AppImageAsset.stop, height: 220, width: 300)
+                Lottie.asset(AppImageAsset.stop, height: 220, width: 300 , repeat: false)
               ]);
               statusRequest = StatusRequest.failure;
         }
@@ -67,7 +68,7 @@ class SignUpControllerImp extends SignUpController {
   void onInit() {
     username = TextEditingController();
     email = TextEditingController();
-    password = TextEditingController();
+    hashedPassword = TextEditingController();
     phone = TextEditingController();
     super.onInit();
   }
@@ -76,8 +77,9 @@ class SignUpControllerImp extends SignUpController {
   void dispose() {
     username.dispose();
     email.dispose();
-    password.dispose();
+    hashedPassword.dispose();
     phone.dispose();
     super.dispose();
   }
+
 }

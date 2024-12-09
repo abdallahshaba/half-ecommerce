@@ -1,6 +1,7 @@
 
 // ignore_for_file: file_names
 
+import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormAuth extends StatelessWidget {
@@ -39,16 +40,22 @@ class CustomTextFormAuth extends StatelessWidget {
         obscureText: obscureText == null || obscureText == false  ? false : true,
         decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
+            borderSide: BorderSide(
+              width: 0.3,
+              color: AppColor.kBackgroundColorMain),
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10) , left: Radius.circular(10))
           ),
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
+           borderSide: BorderSide(color: AppColor.kBackgroundColorMain),
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10) , left: Radius.circular(10))
           ),
           errorBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
+           borderSide: BorderSide(color: Color.fromARGB(255, 186, 33, 22)),
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10) , left: Radius.circular(10))
           ),
           focusedErrorBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
+           borderSide: BorderSide(color: Colors.blue),
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10) , left: Radius.circular(10))
           ),
           fillColor: Colors.white,
           filled: true,

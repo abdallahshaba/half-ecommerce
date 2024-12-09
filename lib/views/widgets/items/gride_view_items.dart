@@ -2,11 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app14/controllers/fav/favorite_controller.dart';
 import 'package:e_commerce_app14/controllers/iteme/item_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
+import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/data/models/items_general_model.dart';
 import 'package:e_commerce_app14/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class GridViewItems extends StatelessWidget {
   const GridViewItems({super.key});
@@ -114,16 +116,16 @@ class CardItem extends GetView<ItemsControllerImp> {
                     ),
                   ),
                     itemsModel.offers != null && int.tryParse(itemsModel.offers!) != 0?
-                  Positioned(
-                    left: 135,
-                    top: 13,
+                    Positioned(
+                    left: 105,
                     child: Container(
+                      height: 100,
+                      width: 100,
                       padding: EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.orange
                       ),
-                      child: const Center(child: Text("OFF" , style: Styles.boldtextStyle12,)),
+                      child: Lottie.asset(AppImageAsset.sale, height: 220, width: 300),
                     ),
                   ): const SizedBox.shrink() 
                 ]),

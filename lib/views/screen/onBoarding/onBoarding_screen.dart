@@ -13,11 +13,11 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
     return const  Scaffold(
-      backgroundColor: AppColor.kBackgroundColor,
+      backgroundColor: AppColor.kBackgroundColorMain4,
       body:  Column(
         children:  [
            SizedBox(
-            height: 50,
+            height: 40,
           ),
           Expanded(
             flex: 3,

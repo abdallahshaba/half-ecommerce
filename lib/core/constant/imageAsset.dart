@@ -2,9 +2,9 @@ class AppImageAsset {
   static const String routeImage = 'assets/images';
   static const String routeLottie = 'assets/lottie';
 
-  static const String onBoardingImageOne = '$routeImage/one.PNG';
-  static const String onBoardingImageTow = '$routeImage/two.PNG';
-  static const String onBoardingImageThree = '$routeImage/three.PNG';
+  static const String onBoardingImageOne = '$routeImage/1.gif';
+  static const String onBoardingImageTow = '$routeImage/2.gif';
+  static const String onBoardingImageThree = '$routeImage/3.gif';
   static const String logo = '$routeImage/logo.png';
   static const String logoApp = '$routeImage/logoapp.png';
   static const String appLogo = '$routeImage/appLogo.png';
@@ -32,6 +32,12 @@ class AppImageAsset {
   static const String cart = '$routeLottie/cart.json';
   static const String ecommerce = '$routeLottie/ecommerce.json';
   static const String map = '$routeLottie/Animation - 1728141091829.json';
+  static const String offers = '$routeLottie/Animation - 1729154611175.json';
+  static const String recive = '$routeLottie/Animation - 1729164931312.json';
+    static const String delivery = '$routeLottie/Animation - 1729164691835.json';
+
+
+
 
 
 

@@ -83,21 +83,29 @@ class SallingItems extends GetView<HomeControllerImp> {
                           ),
                         ),
                         const SizedBox(height: 5,),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          height: 35,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(10)
+                        Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              height: 35,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10)
+                                ),
+                                color: AppColor.kBackgroundColorMain
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: Text("${sallingItemsModels.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
+                              ),
                             ),
-                            color: AppColor.kBackgroundColorMain
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: Text("${sallingItemsModels.itemsPrice} \$" ,style: Styles.boldtextStyle16.copyWith(color:Colors.white),),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6 , top: 4),
+                              child: Text("S.N : ${sallingItemsModels.salesNumber} " , style: Styles.boldtextStyle14,),
+                            )
+                          ],
                         ),
-                        const SizedBox(height: 52,),
+                        const SizedBox(height: 28,),
                         const Padding(
                           padding:  EdgeInsets.only(left: 7),
                           child:  Row(

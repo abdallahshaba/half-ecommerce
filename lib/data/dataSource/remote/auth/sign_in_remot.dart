@@ -8,9 +8,9 @@ import '../../../../link_api.dart';
 class SignInData {
   Crud crud = Get.put(Crud());
   
-  postdata(String emai ,String password) async {
+  postdata(String email ,String password) async {
     var response = await crud.postData(AppLink.signIn, {
-      "email" : emai , 
+      "email" : email , 
       "password" : password  , 
     });
     return response.fold((l) => l, (r) => r);

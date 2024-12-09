@@ -16,7 +16,7 @@ class PriceDetailsCart extends StatelessWidget {
      widget: Padding(
        padding: const EdgeInsets.only(top: 10),
        child: SizedBox(
-              height: 230,
+              height: 210,
               width: double.infinity,
               child:  Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -24,7 +24,7 @@ class PriceDetailsCart extends StatelessWidget {
                 children: [
                   const SizedBox(height: 5,),
                   Container(
-                    height: 130,
+                    height: 120,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -43,8 +43,7 @@ class PriceDetailsCart extends StatelessWidget {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Text("Shipping" , style: Styles.boldtextStyle16,),
-                        Text("300 \$"  , style: Styles.boldtextStyle16,)
+                        
                       ],
                     ),
                     

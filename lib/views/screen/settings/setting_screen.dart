@@ -6,6 +6,7 @@ import 'package:e_commerce_app14/views/screen/orders/archieve.dart';
 import 'package:e_commerce_app14/views/screen/orders/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -79,7 +80,9 @@ class SettingsScreen extends StatelessWidget {
                              const Divider(),
                               ListTile(
                                 title: const Text("Contact us"),
-                                onTap: () {  },
+                                onTap: () { 
+                                  launchUrl(Uri.parse("Tel:01174652554"));
+                                 },
                                 trailing: const Icon(Icons.phone_outlined),
                                 ),
                                const Divider(),

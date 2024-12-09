@@ -1,5 +1,5 @@
 import 'package:e_commerce_app14/controllers/checkOut/checkOut_controller.dart';
-import 'package:e_commerce_app14/core/class/handling_data_view.dart';
+import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/views/widgets/checkOut/address_method.dart';
@@ -16,8 +16,9 @@ class CheckOutScreen extends StatelessWidget {
      Get.put(CheckOutController());
     return GetBuilder<CheckOutController>(builder:(controller) => Scaffold(
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15),
+        margin: const EdgeInsets.symmetric(horizontal: 15 , vertical: 10),
         child: MaterialButton(
+          height: 40,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           color: AppColor.kBackgroundColorMain,
           onPressed: (){
@@ -37,9 +38,7 @@ class CheckOutScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: GetBuilder<CheckOutController>(builder:(controller) => HandlingDataView(
-          statusRequest: controller.statusRequest, 
-          widget: ListView(
+        child: GetBuilder<CheckOutController>(builder:(controller) =>  ListView(
           children:  [
             const SizedBox(height: 20,),
             const Text( "Choose payment method",style: Styles.boldtextStyle16,),
@@ -81,7 +80,7 @@ class CheckOutScreen extends StatelessWidget {
                 InkWell(
                   splashColor: Colors.transparent,
                   onTap: (){controller.selectionDelivery("1");},
-                  child: DeliveryMethodCheckOut(title: "Drive Thru" , urL: "assets/images/drivethru.png", isActive: controller.deliveryType=="1"? true : false,)),
+                  child: DeliveryMethodCheckOut(title: "Recive" , urL: "assets/images/drivethru.png", isActive: controller.deliveryType=="1"? true : false,)),
               ],
             ),
              const SizedBox(height: 20,),
@@ -90,8 +89,15 @@ class CheckOutScreen extends StatelessWidget {
             if(controller.deliveryType== "0")  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Choose Shipping Address",style: Styles.boldtextStyle16,),
+                  if(controller.data.isNotEmpty)
+                 const Text("Choose Shipping Address",style: Styles.boldtextStyle16,),
                  const SizedBox(height: 10,),
+                  if(controller.data.isEmpty)
+                  Container(child: InkWell(
+                    onTap: () {
+                      Get.toNamed(AppRouts.addressView);
+                    },
+                    child: Center(child: Text("Please add shipping address \n                click here "))),),
                 ...List.generate(controller.data.length, (index) => InkWell(
                   onTap: () {
                     controller.selectionAddress("${controller.data[index].addresId}");
@@ -108,6 +114,6 @@ class CheckOutScreen extends StatelessWidget {
         ),
           ),)
       ),
-    ),);
+    );
   }
 }

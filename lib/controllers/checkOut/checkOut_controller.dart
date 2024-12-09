@@ -57,8 +57,10 @@ class CheckOutController extends GetxController{
    getCheckOut () async {
     statusRequest = StatusRequest.noone;
 
-    if(paymentMethod == null) return  Get.snackbar("warning" , "Please inter Payment Method" , backgroundColor: Colors.white);
-    if(deliveryType == null) return  Get.snackbar("warning" , "Please inter delivery Type" , backgroundColor: Colors.white);
+    if(paymentMethod == null) return  Get.snackbar("warning" , "Please enter Payment Method" , backgroundColor: Colors.white);
+    if(deliveryType == null) return  Get.snackbar("warning" , "Please enter delivery Type" , backgroundColor: Colors.white);
+    if(data.isEmpty) return  Get.snackbar("warning" , "Please add the shipping address" , backgroundColor: Colors.white);
+
 
 
     Map dataa = {

@@ -48,6 +48,19 @@ class AppRouts {
 
 
 
+  static const String offersScreen = '/offersScreen';
+
+
+  static const String splash = '/splash';
+
+  static const String lanScreen = '/lanScreen';
+
+
+
+
+
+
+
 
 
 

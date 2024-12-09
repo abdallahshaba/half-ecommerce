@@ -53,14 +53,14 @@ class CartScreen extends StatelessWidget {
                    child: SizedBox(
                             child: controller.couponName == null ? Row(
                               children: [
-                                Expanded(
+                              if(controller.data.isNotEmpty)  Expanded(
                                   flex: 2,
                                   child: CustomTextFieldCoupon(
                                     controllerCoupon: controller.controllerCoupon,
                                     hintText: "Enter Coupon")
                                 ),
                                const SizedBox(width: 10,),
-                                Expanded(
+                              if(controller.data.isNotEmpty)  Expanded(
                                   child: CustomButtonCoupon(
                                     text: "Apply",
                                       onPressed: () {

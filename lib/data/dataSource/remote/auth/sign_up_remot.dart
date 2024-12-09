@@ -8,10 +8,10 @@ import '../../../../link_api.dart';
 class SignupData {
   Crud crud = Get.put(Crud());
   
-  postdata(String username ,String password ,String email , String phone) async {
+  postdata(String username ,String hashedPassword ,String email , String phone) async {
     var response = await crud.postData(AppLink.signUp, {
       "username" : username , 
-      "password" : password  , 
+      "password" : hashedPassword  , 
       "email" : email , 
       "phone" : phone
     });

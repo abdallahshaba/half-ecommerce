@@ -1,10 +1,11 @@
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
-import 'package:e_commerce_app14/core/middleware/my_middleware.dart';
+// import 'package:e_commerce_app14/core/middleware/my_middleware.dart';
 //import 'package:e_commerce_app14/test.dart';
 import 'package:e_commerce_app14/text_Packeages.dart';
 import 'package:e_commerce_app14/views/address/add_address.dart';
 import 'package:e_commerce_app14/views/address/edite_address.dart';
 import 'package:e_commerce_app14/views/address/view_address.dart';
+import 'package:e_commerce_app14/views/offers/offers_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/forget_password_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/resetPassword_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/signUp_screen.dart';
@@ -30,10 +31,9 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 List<GetPage<dynamic>>? routes = [
+  // GetPage(name: "/", page: () =>  SplashScreen()),
   //GetPage(name: "/", page: () => const TestPages()),
-   GetPage(name: "/", page: () => const LanguageScreen(), middlewares: [
-     MyMiddleWare(),
-   ] ),
+   GetPage(name: "/", page: () => const LanguageScreen(),  ),
   GetPage(name: AppRouts.signIn, page: () => const SignInScreen()),
   GetPage(name: AppRouts.signUp, page: () => const SignUpScreen()),
   GetPage(name: AppRouts.forgetPassword, page: () => const ForgerPasswordScreen()),
@@ -72,5 +72,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRouts.pendingOreders, page: () => const PendingOrdersScreen()),
   GetPage(name: AppRouts.archiveOreders, page: () => const ArchiveOrdersScreen()),
   GetPage(name: AppRouts.orderDetails, page: () => const OrderDetailsScteen()),
+
+  GetPage(name: AppRouts.offersScreen, page: () => const OffersScreen()),
+
 
 ];
