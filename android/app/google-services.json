@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "642482562088",
-    "project_id": "ecommerceapp14-aa5c8",
-    "storage_bucket": "ecommerceapp14-aa5c8.appspot.com"
+    "project_number": "98038222356",
+    "project_id": "message-customer-services",
+    "storage_bucket": "message-customer-services.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:642482562088:android:ae296656ebdacf96dc811d",
+        "mobilesdk_app_id": "1:98038222356:android:4efe24281dd84a54696101",
         "android_client_info": {
           "package_name": "com.example.e_commerce_app14"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAlF0hR0NMplM6xizsfHV2fj2O9--KcIVM"
+          "current_key": "AIzaSyBF784TVYKyPHzzEoS2cQP4MwYBzmXSNig"
         }
       ],
       "services": {

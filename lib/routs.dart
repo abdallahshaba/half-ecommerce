@@ -5,6 +5,7 @@ import 'package:e_commerce_app14/text_Packeages.dart';
 import 'package:e_commerce_app14/views/address/add_address.dart';
 import 'package:e_commerce_app14/views/address/edite_address.dart';
 import 'package:e_commerce_app14/views/address/view_address.dart';
+import 'package:e_commerce_app14/views/message/message_view.dart';
 import 'package:e_commerce_app14/views/offers/offers_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/forget_password_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/resetPassword_screen.dart';
@@ -20,7 +21,7 @@ import 'package:e_commerce_app14/views/screen/favorite/favorite_scre.dart';
 import 'package:e_commerce_app14/views/screen/home/general_home.dart';
 import 'package:e_commerce_app14/views/screen/items/items_screnn.dart';
 import 'package:e_commerce_app14/views/screen/items_details/items_detiel_scre.dart';
-import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
+//import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:e_commerce_app14/views/screen/onBoarding/onBoarding_screen.dart';
 import 'package:e_commerce_app14/views/screen/orders/archieve.dart';
 import 'package:e_commerce_app14/views/screen/orders/order_details.dart';
@@ -33,7 +34,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 List<GetPage<dynamic>>? routes = [
   // GetPage(name: "/", page: () =>  SplashScreen()),
   //GetPage(name: "/", page: () => const TestPages()),
-   GetPage(name: "/", page: () => const LanguageScreen(),  ),
+   //GetPage(name: "/", page: () => const LanguageScreen(),  ),
   GetPage(name: AppRouts.signIn, page: () => const SignInScreen()),
   GetPage(name: AppRouts.signUp, page: () => const SignUpScreen()),
   GetPage(name: AppRouts.forgetPassword, page: () => const ForgerPasswordScreen()),
@@ -47,7 +48,7 @@ List<GetPage<dynamic>>? routes = [
 
   GetPage(name: AppRouts.testPakeages, page: () => const TestPakeages()),
   //============================ Home ===================================
-  GetPage(name: AppRouts.homeScreen, page: () => const HomeGeneral()),
+  GetPage(name: "/", page: () => const HomeGeneral()),
   GetPage(name: AppRouts.homeGeneral, page: () => const HomeGeneral()),
   GetPage(name: AppRouts.settingsScreen, page: () => const SettingsScreen()),
 
@@ -74,6 +75,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRouts.orderDetails, page: () => const OrderDetailsScteen()),
 
   GetPage(name: AppRouts.offersScreen, page: () => const OffersScreen()),
+  GetPage(name: AppRouts.message, page: () => const MessageScreen()),
+
 
 
 ];

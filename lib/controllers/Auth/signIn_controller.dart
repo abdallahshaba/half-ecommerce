@@ -57,8 +57,8 @@ class SignInControllerImp extends SignInController {
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
           myServices.sharedPreference.setString("step", "2");
-         // myServices.sharedPreference.setString("id", response['data']['id']);
-         // myServices.sharedPreference.setString("username", response['data']['username']);
+         myServices.sharedPreference.setString("id", response['data']['id']);
+         myServices.sharedPreference.setString("username", response['data']['username']);
           Future.delayed(const Duration(seconds: 2), () {
             Get.offAllNamed(AppRouts.homeScreen);
           });

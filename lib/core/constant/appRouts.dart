@@ -55,6 +55,8 @@ class AppRouts {
 
   static const String lanScreen = '/lanScreen';
 
+   static const String message = '/message';
+
 
 
 

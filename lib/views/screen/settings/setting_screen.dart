@@ -2,6 +2,7 @@ import 'package:e_commerce_app14/controllers/settings_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/views/address/view_address.dart';
+import 'package:e_commerce_app14/views/message/message_view.dart';
 import 'package:e_commerce_app14/views/screen/orders/archieve.dart';
 import 'package:e_commerce_app14/views/screen/orders/pending.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,14 @@ class SettingsScreen extends StatelessWidget {
                                   Get.to( const ViewAdderssScreen() , transition: Transition.fadeIn);
                                  },
                                 trailing: const Icon(Icons.location_on_outlined),
+                                ),
+                                const Divider(),
+                              ListTile(
+                                title: const Text("Message Customer services"),
+                                onTap: () { 
+                                  Get.to( const MessageScreen() , transition: Transition.fadeIn);
+                                 },
+                                trailing: const Icon(Icons.message),
                                 ),
                                 const Divider(),
                                 ListTile(
